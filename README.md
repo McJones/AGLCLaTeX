@@ -62,22 +62,22 @@ Refer to the AGLC for formatting rules. Note that:
 
 ```
 @case-au-volume{tang2008,
-Title  = {R v Tang}, % the case title
-Year   = {2008}, % the year of the decision (not the year of publication)
-Volume = {237}, % the volume of the report
-Series = {CLR}, % the appreviation of the report series (eg, 'CLR' is 'Commonwealth Law Reports')
-Pages  = {1}} % the page on which the decision starts (not a range)
+Title  = {R v Tang},
+Year   = {2008},
+Volume = {237},
+Series = {CLR},
+Pages  = {1}}
 
 @case-au-year{bakker1980,
 Title  = {Bakker v Stewart},
-Year   = {1980}, % the year of the volume in which the decision is reported
+Year   = {1980},
 Series = {VR},
 Pages  = {17}}
   
 @case-au-year{rowe1976,
 Title  = {Rowe v McCartney},
 Year   = {1976},
-Volume = {2}, % the individual volume in which the decision is reported (eg, this is volume 2 of the 1976 NSWLR)
+Volume = {2},
 Series = {NSWLR},
 Pages  = {72}}
 ```
@@ -101,17 +101,17 @@ Venue  = {Court of Appeal}}
 ```
 @case-au-mnc{quarmby2009,
 Title  = {Quarmby v Keating},
-Date   = {2009-09-09}, % the date of the decision in YYYY-MM-DD
-Venue  = {TASSC}, % the Unique Court Identifier
-Number = {80}} % the judgment number
+Date   = {2009-09-09},
+Venue  = {TASSC},
+Number = {80}}
 ```
 #### Unreported decisions without a Medium Neutral Citation
 
 ```
 @case-au-unreported{barton1989,
 Title  = {Barton v Chibber},
-Venue  = {Supreme Court of Victoria}, % the court by which the decision was made
-Author = {Hampel J}, % the judge or judges who made the decision
+Venue  = {Supreme Court of Victoria},
+Author = {Hampel J},
 Date   = {1989-06-29}}
 ```
 
@@ -125,12 +125,12 @@ Arbitrations use the ```@arbitration``` entry type. Arbitrations may or may not 
 
 ```
 @arbitration{beckman1988,
-Title  = {Beckman Instruments Inc v Overseas Private Investment Corporation}, % the title of the arbitration if given
-Note   = {Award and Opinion}, % the stage of the arbitration or description of the award
-Venue  = {American Arbitration Association Commercial Arbitration Tribunal}, % the forum or names of the arbitrators
-Type   = {Case}, % the type of dispute (eg, case, dispute or award)
-Number = {16 199 00209 87G}, % the number of the dispute (if applicable)
-Date   = {1988-02-20}} % the date of the decision
+Title  = {Beckman Instruments Inc v Overseas Private Investment Corporation},
+Note   = {Award and Opinion},
+Venue  = {American Arbitration Association Commercial Arbitration Tribunal},
+Type   = {Case},
+Number = {16 199 00209 87G},
+Date   = {1988-02-20}}
 ```
 
 ```
@@ -138,7 +138,7 @@ Date   = {1988-02-20}} % the date of the decision
 Title  = {Sandline International v Papua New Guinea},
 Note   = {Award},
 Venue  = {Sir Edward Somers, Sir Michael Kerr and Sir Daryl Dawson},
-Date   = {1998-10-09}} % the date of the arbitration
+Date   = {1998-10-09}}
 ```
 
 ```
@@ -166,29 +166,29 @@ High Court of Australia transcripts are cited very similarly to unreported decis
 
 ```
 @case-transcript{celano2009,
-Title  = {Celano v Swan}, % the title of the case
-Venue  = {County Court of Victoria}, % the court in which the matter was heard
-Number = {09/0867}, % the number of the matter (if applicable)
-Author = {Judge Lacava}, % the judge or judges hearing the matter
-Date   = {2009-08-27}} % the full date
+Title  = {Celano v Swan},
+Venue  = {County Court of Victoria},
+Number = {09/0867},
+Author = {Judge Lacava},
+Date   = {2009-08-27}}
 ```
 
 ```
 @case-transcript-hca{ruhani2005,
 Title  = {Ruhani v Director of Police},
 Date   = {2005-04-19},
-Number = {205}} % the number that follows 'HCA Trans' in the citation
+Number = {205}}
 ```
 
 #### Submissions in Cases
 
 ```
 @case-submission{agcth2005,
-Author    = {Attorney-General (Cth)}, % the party or person making the submission
-Title     = {Outline of Submissions of the Attorney-General of the Commonwealth as Amicus Curiae}, % the submission title
-Maintitle = {Human Society International Inc v Kyodo Senpaku Kaisha Ltd}, % the case title
-Number    = {NSD 1519/2004}, % the proceeding number
-Date      = {2005-01-25}} % the full date
+Author    = {Attorney-General (Cth)},
+Title     = {Outline of Submissions of the Attorney-General of the Commonwealth as Amicus Curiae},
+Maintitle = {Human Society International Inc v Kyodo Senpaku Kaisha Ltd},
+Number    = {NSD 1519/2004},
+Date      = {2005-01-25}}
 ```
 
 #### Subsequent References
@@ -206,13 +206,13 @@ AGLCLaTeX uses the ```@act-au``` entry type for statutes, constitutions and dele
 ```
 @act-au{crimesact1958vic,
 Title    = {Crimes Act},
-Year     = {1958}, % the year, even if not included with the legislation
-Location = {Vic}} % the abbreviated jurisdiction
+Year     = {1958},
+Location = {Vic}}
 ```
 
 ```
 @act-au{ausconstitution,
-Title = {Australian Constitution}} % the AGLC states that more details are unnecessary for the Australian Constitution
+Title = {Australian Constitution}}
 ```
 
 ```
@@ -237,13 +237,13 @@ Gazette notice with author and title:
 
 ```
 @gazette{gaz1997cth,
-Author    = {Minister for Lands (WA)}, % the author of the notice (optional)
-Title     = {\textit{Land Acquisition and Public Works Act 1902 --- Native Title Act 1993} (Commonwealth) --- Notice of Intention to Take Land for a Public Work}, % the title of the notice (optional)
-Location  = {Western Australia}, % the jurisdiction of the gazette (eg, Commonwealth, New South Wales, Western Australia)
-Maintitle = {Western Australian Government Gazette} % the title of the gazette
-Number    = {27}, % the gazette number
-Date      = {1997-02-18}, % the full date
-Pages     = {1142}} % the starting page only
+Author    = {Minister for Lands (WA)},
+Title     = {\textit{Land Acquisition and Public Works Act 1902 --- Native Title Act 1993} (Commonwealth) --- Notice of Intention to Take Land for a Public Work},
+Location  = {Western Australia},
+Maintitle = {Western Australian Government Gazette}
+Number    = {27},
+Date      = {1997-02-18},
+Pages     = {1142}}
 ```
 Gazette with notice title:
 
@@ -561,4 +561,164 @@ Publisher  = {Methuen},
 Year       = {1958},
 Origtitle  = {L'Entre et le N\'{e}ant},
 Origyear   = {1953}}
+```
+
+### Other Sources
+
+#### Government Documents
+
+AGLCLaTeX provides for nine kinds of government documents:
+
+- ```@hansard``` - for parliamentary debates/Hansard,
+- ```@parl-paper``` - for parliamentary papers,
+- ```@parl-research-paper``` - for parliamentary research papers,
+- ```@parl-comm-rep``` - for parliamentary committee reports,
+- ```@digest``` - for bills digests and alert digests,
+- ```@parl-comm-evidence``` - for evidence to parliamentary committees,
+- ```@royal-comm-rep``` - for Royal Commission reports,
+- ```@lrc-rep``` - for Law Reform Commission reports, and
+- ```@debate``` - for Australian Constitutional Convention Debates.
+
+Parliamentary debates/Hansard:
+
+```
+@hansard{hansard2008cth,
+Location = {Commonwealth},
+Venue    = {Senate},
+Date     = {2008-06-18}}
+```
+
+```
+@hansard{hansard2006vic,
+Location = {Victoria},
+Venue    = {Legislative Assembly},
+Date     = {2006-05-04}}
+```
+
+Parliamentary papers:
+
+```
+@parl-paper{cthparlpaper211,
+Location = {Commonwealth},
+Title    = {Australia's Aid Program in the Pacific: Joint Standing Committee on Foreign Affairs, Defence and Trade},
+Number   = {211},
+Year     = {2007}}
+```
+
+Parliamentary research papers, notes and briefs:
+
+```
+@parl-research-paper{bennet2008,
+Author      = {Scott Bennett},
+Title       = {The Rise of the Australian Greens},
+Type        = {Research Paper},
+Number      = {8},
+Institution = {Parliamentary Library},
+Venue       = {Parliament of Australia},
+Year        = {2008}}
+```
+
+```
+@parl-research-paper{robertson2007,
+Author      = {Jeffrey Robertson},
+Title       = {North Korean Nuclear Issues and the Role of Parliamentary Diplomacy},
+Type        = {Research Note},
+Number      = {23},
+Institution = {Parliamentary Library},
+Venue       = {Parliament of Australia},
+Year        = {2007}}
+```
+
+Parliamentary committee reports:
+
+```
+@parl-comm-rep{lrcparl2009,
+Institution = {Law Reform Committee},
+Venue       = {Parliament of Victoria},
+Title       = {Inquiry into Alternative Dispute Resolution and Restorative Justice},
+Year        = {2009}}
+```
+
+```
+@parl-comm-rep{slcrc2006,
+Institution = {Senate Legal and Constitutional References Committee},
+Venue       = {Parliament of Australia},
+Title       = {Administration and Operation of the Migration Act 1958},
+Year        = {2006}}
+```
+
+Bill digests and alert digests:
+
+```
+@digest{sscsb2007,
+Author = {Senate Standing Committee for the Scrutiny of Bills},
+Venue  = {Parliament of Australia},
+Type   = {Alert Digest},
+Number = {9 of 2007},
+Date   = {2007-08-13}}
+```
+
+```
+@digest{lrcparl2008,
+Author = {Legislation Review Committee},
+Venue  = {Parliament of New South Wales},
+Type   = {Legislation Review Digest},
+Number = {13 of 2008},
+Date   = {2008-11-10}}
+```
+
+Evidence to parliamentary committees:
+
+```
+@parl-comm-evidence{sscfadt2007,
+Institution = {Senate Standing Committee on Foreign Affairs, Defence and Trade},
+Venue       = {Parliament of Australia},
+Location    = {Canberra},
+Date        = {2007-02-26}}
+```
+
+Royal Commission reports:
+
+```
+@royal-comm-rep{rcadc1991,
+Location    = {Commonwealth},
+Institution = {Royal Commission into Aboriginal Deaths in Custody},
+Title       = {National Report},
+Year        = {1991}}
+```
+
+Law Reform Commission reports:
+
+```
+@lrc-rep{vlrc2008,
+Institution = {Victorian Law Reform Commission},
+Title       = {Civil Justice Review},
+Type        = {Report},
+Number      = {14},
+Year        = {2008}}
+```
+
+```
+@lrc-rep{lrc1980,
+Institution = {Law Reform Commission},
+Title       = {Reform of Evidence Law},
+Type        = {Discussion Paper},
+Number      = {16},
+Year        = {1980}}
+```
+
+Australian Constitutional Convention Debates:
+
+```
+@debate{ordafc1897,
+Title    = {Official Record of the Debates of the Australasian Federal Convention},
+Location = {Sydney},
+Date     = {1897-09-02}}
+```
+
+```
+@debate{ornacd1897,
+Title    = {Official Report of the National Australasian Convention Debates},
+Location = {Adelaide},
+Date     = {1897-03-29}}
 ```
