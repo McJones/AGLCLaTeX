@@ -436,8 +436,6 @@ URL     = {http://www.austlii.edu.au/au/journals/HCRev/1996/9.html}}
 
 Symposia:
 
-Unsigned article published in a journal arranged by volume:
-
 ```
 @article-volume{mulr2002,
 Type    = {Symposium},
@@ -447,3 +445,104 @@ Volume  = {26},
 Journal = {Melbourne University Law Review},
 Pages   = {251}}
 ```
+
+### Books
+
+AGLCLaTeX provides for three kinds of book-type entries:
+
+- ```@book``` - books with authors or editors (or both),
+- ```@chapter``` - chapters in edited books, and
+- ```@translated-book``` - books which have been translated into English.
+
+'et al' is automatically added where there are four or more authors or editors. '(ed)' or '(eds') are automatically after the editor(s) name(s).
+
+#### Books with authors, editors, or both
+
+Book with author, title, publisher and year:
+
+```
+@book{dworkin1968,
+Author    = {Ronald Dworkin},
+Title     = {Law's Empire},
+Publisher = {Harvard University Press},
+Year      = {1968}}
+```
+
+Book with authors, title, publisher, edition and year:
+
+```
+@book{castan2004,
+Author    = {Sarah Joseph and Jenny Schultz and Melissa Castan},
+Title     = {The International Covenant on Civil and Political Rights: Cases, Materials, and Commentary},
+Publisher = {Oxford University Press},
+Edition   = {2},
+Year      = {2004}}
+```
+
+Book with editor, title, publisher and year:
+
+```
+@book{frey1985,
+Editor    = {R G Frey},
+Title     = {Utility and Rights},
+Publisher = {Basil Blackwell},
+Year      = {1985}}
+```
+
+Book with editors, title, publisher and year:
+
+```
+@book{neyers2007,
+Editor    = {Jason W Neyers and Erika Chamberlain and Stephen G A Pitel},
+Title     = {Emerging Issues in Tort Law},
+Publisher = {Hart Publishing},
+Year      = {2007}}
+```
+
+Book specifying year of first publication and year of edition:
+
+```
+@book{hobbes1909,
+Author    = {Thomas Hobbes},
+Title     = {Leviathan},
+Publisher = {Clarendon Press},
+Origyear  = {1651},
+Year      = {1909}}
+```
+
+Book specifying year of first publication, year of edition and volume:
+
+```
+@book{hale1971vol1,
+Author    = {Sir Matthew Hale},
+Title     = {Historia Placitorum Coronae},
+Publisher = {London Professional Books},
+Origyear  = {1736},
+Year      = {1971},
+Volume    = {1}}
+```
+
+Book with revised edition:
+
+```
+@book{cohn1968,
+Author    = {E J Cohn and W Zdzieblo},
+Title     = {Manual of German Law},
+Publisher = {Oceana Publications},
+Edition   = {2},
+Type      = {revised},
+Year      = {1968}}
+```
+
+#### Chapters in edited books
+
+These are cited almost exactly the same as for books, but ```title``` refers to the title of the chapter, and ```booktitle``` refers to the title of the book:
+
+```
+@chapter{russell2008,
+Author    = {Meg Russell},
+Title     = {Reform of the House of Lords: Lessons for Bicameralism},
+Editor    = {Nicholas Aroney and Scott Prasser and J R Nethercote},
+Booktitle = {Restraining Elective Dictatorship: The Upper House Solution?},
+Publisher = {University of Western Australia Press},
+Year      = {2008}}
