@@ -117,7 +117,7 @@ Date   = {1989-06-29}}
 
 **AGLCLaTeX does not currently support case history**
 
-### Quasi-judicial decisions (administrative decisions and arbitrations)
+#### Quasi-judicial decisions (administrative decisions and arbitrations)
 
 Administrative decisions should cited as cases (ie, using ```@case-au-volume```, ```@case-au-year```, ```@case-au-mnc``` or ```@case-au-unreported```).
 
@@ -153,7 +153,7 @@ Date   = {1999-10-12}}
 
 **AGLCLaTeX does not currently support arbitrations reported in other sources (eg, reported series and books).**
 
-### Transcripts of proceedings
+#### Transcripts of proceedings
 
 AGLCLaTeX provides for two kinds of court transcripts:
 
@@ -180,7 +180,7 @@ Date   = {2005-04-19},
 Number = {205}} % the number that follows 'HCA Trans' in the citation
 ```
 
-### Submissions in Cases
+#### Submissions in Cases
 
 ```
 @case-submission{agcth2005,
