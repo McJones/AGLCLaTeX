@@ -546,3 +546,19 @@ Editor    = {Nicholas Aroney and Scott Prasser and J R Nethercote},
 Booktitle = {Restraining Elective Dictatorship: The Upper House Solution?},
 Publisher = {University of Western Australia Press},
 Year      = {2008}}
+```
+
+#### Translated books
+
+Translated books are essentially the same as regular books, but require extra fields:
+
+```
+@translated-book{sartre1958,
+Author     = {Jean-Paul Sartre},
+Title      = {Being and Northingness: An Essay on Phenomenological Ontology},
+Translator = {Hazel E Barnes},
+Publisher  = {Methuen},
+Year       = {1958},
+Origtitle  = {L'Entre et le N\'{e}ant},
+Origyear   = {1953}}
+```
