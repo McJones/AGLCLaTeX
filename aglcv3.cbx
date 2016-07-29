@@ -1,0 +1,162 @@
+\ProvidesFile{aglc.cbx}
+
+\ExecuteBibliographyOptions{dateabbrev=false,ibidtracker=strict,loccittracker=true,citetracker=true}
+
+\newcommand{\para}[1]{\StrSubstitute{[#1]}{, }{],\addspace[}[\x]\StrSubstitute{\x}{--}{]--[}}
+
+\newbibmacro*{cite:save}{%
+	\csxdef{cbx@\thefield{entrykey}}{\the\value{instcount}}%
+	\label{cbx@\the\value{instcount}}%
+}
+
+\DeclareListFormat{last}{\ifthenelse{\value{listcount}=1}{#1}{}}
+\DeclareNameFormat{surname}{\ifthenelse{\value{listcount}=1}{#1}{}}
+\DeclareNameFormat{firstname}{\ifthenelse{\value{listcount}=1}{#3}{}}
+
+\newbibmacro{author/editor:surname}{%
+  \ifthenelse{\ifuseauthor\AND\NOT\ifnameundef{author}}%
+    {\ifuseauthor{\printnames[surname]{author}}{}}%
+    {\ifthenelse{\ifuseeditor\AND\NOT\ifnameundef{editor}}{\printnames[surname]{editor}}{}}}
+    
+\DeclareFieldFormat{prenote}{#1\addspace}
+
+\DeclareFieldFormat[case-au-volume,case-au-year,case-submission]{postnote}{%
+	\ifciteibid{%
+		\ifloccit{}{%
+			\addspace#1}}{%
+		\addcomma\addspace#1}}%
+
+\DeclareFieldFormat{postnote}{%
+	\ifciteibid{%
+		\ifloccit{}{%
+			\addspace#1}}{%
+		\ifthenelse{%
+			\ifentrytype{gazette} \or%
+			\ifentrytype{govt-order} \or%
+			\ifentrytype{practice-direction} \or%
+			\ifentrytype{article-volume} \or%
+			\ifentrytype{article-year} \or%
+			\ifentrytype{chapter} \or%
+			\ifentrytype{hansard} \or%
+			\ifentrytype{digest} \or%
+			\ifentrytype{parl-comm-evidence} \or%
+			\ifentrytype{debate} \or%
+			\ifentrytype{submission} \or%
+			\ifentrytype{newspaper}}{%
+				\addcomma\addspace#1}{%
+				\addspace#1}}}%
+			
+\DeclareFieldFormat[case-au-mnc,legal-encyclopedia]{postnote}{%
+	\ifciteibid{%
+		\ifloccit{}{%
+			\addspace\StrSubstitute{[#1]}{, }{],\addspace[}[\x]\StrSubstitute{\x}{--}{]--[}}}{%
+		\addspace\StrSubstitute{[#1]}{, }{],\addspace[}[\x]\StrSubstitute{\x}{--}{]--[}}}%
+		
+\DeclareFieldFormat[arbitration]{postnote}{%
+	\ifciteibid{%
+		\ifloccit{}{%
+			\addspace#1}}{
+		\iffieldundef{title}{%
+			\addcomma\addspace#1}{%
+			\addspace#1}}}%
+		
+\DeclareFieldFormat[article-volume,article-year]{postnote}{%
+	\ifciteibid{%
+		\ifloccit{}{%
+			\addspace#1}}{%
+		\iffieldundef{url}{%
+			\iffieldundef{pages}{%
+				\addspace#1}{%
+				\addcomma\addspace#1}}{%
+			\iffieldundef{pages}{%
+				\StrSubstitute{[#1]}{, }{],\addspace[}[\x]\StrSubstitute{\x}{--}{]--[}\printfield{url}}{%
+				\addcomma\addspace#1\addspace\printfield{url}}}}}%
+			
+\DeclareFieldFormat[book]{postnote}{%
+	\ifciteibid{%
+		\ifloccit{}{%
+			\addspace#1}}{%
+		\iffieldundef{volume}{%
+			\addspace#1}{%
+			\addcomma\addspace#1}}}%
+		
+\DeclareFieldFormat[translated-book]{postnote}{%
+	\ifciteibid{%
+		\ifloccit{}{%
+			\addspace#1}}{%
+		\addspace#1\addspace%
+		\printtext{[trans of:}%
+		\addspace%
+		\printfield{origtitle}%
+		\addspace\printtext{(}%
+		\iffieldundef{edition}{%
+			\printtext{first published}\addspace\printfield{origyear}}{%
+			\printfield{edition}\printtext{ed}\addcomma\addspace\printfield{origyear}}%
+		\printtext{)]}}}%
+
+\DeclareFieldFormat[transcript,pressrelease,workingpaper,thesis,conference,speech,interview]{postnote}{%
+	\ifciteibid{%
+		\ifloccit{}{%
+			\addspace#1}}{%
+		\addspace#1\printfield{url}}}%
+	
+\DeclareFieldFormat[correspondence]{postnote}{%
+	\ifciteibid{%
+		\ifloccit{}{%
+			\addspace#1}}{%
+		\addcomma\addspace#1\printfield{url}}}%
+	
+\DeclareFieldFormat[online]{postnote}{%
+	\iffieldundef{year}{%
+		\addcomma\addspace#1}{%
+		\iflistundef{organization}{%
+			\addspace#1}{%
+			\addcomma\addspace#1}}%
+	\printfield{url}}
+	
+\DeclareCiteCommand{\cite}[\mkbibfootnote]{}{%
+	\printfield{prenote}%
+	\ifciteibid{%
+		Ibid\addspace\printfield{postnote}}{%
+		\ifciteseen{%
+			\ifthenelse{%
+				\ifentrytype{case-au-volume} \or%
+				\ifentrytype{case-au-year} \or%
+				\ifentrytype{case-au-mnc} \or%
+				\ifentrytype{case-au-unreported} \or%
+				\ifentrytype{case-transcript} \or%
+				\ifentrytype{case-transcript-hca} \or%
+				\ifentrytype{arbitration} \or%
+				\ifentrytype{case-submission} \or%
+				\ifentrytype{act-au} \or%
+				\ifentrytype{gazette} \or%
+				\ifentrytype{govt-order} \or%
+				\ifentrytype{non-govt-order} \or%
+				\ifentrytype{practice-direction} \or%
+				\ifentrytype{bill-au} \or%
+				\ifentrytype{bill-au-exp} \or%
+				\ifentrytype{hansard} \or%
+				\ifentrytype{parl-comm-evidence} \or%
+				\ifentrytype{debate} \or%
+				\ifentrytype{interview} \or%
+				\ifentrytype{correspondence}}{%
+				\usedriver{}{\thefield{entrytype}}}{%
+				\usebibmacro{author/editor:surname}\addcomma\addspace{above n}\addspace\ref{cbx@\csuse{cbx@\thefield{entrykey}}}\ifloccit{}{\addcomma}\printfield{postnote}}}{%
+			\usebibmacro{cite:save}%
+			\usedriver{}{\thefield{entrytype}}\printfield{postnote}}}}%
+{}{}%
+					
+
+
+\DeclareCiteCommand{\textcite}{}{%
+	\usedriver{}{\thefield{entrytype}}%
+	\printfield{postnote}%
+	\ifthenelse{%
+		\ifentrytype{case-au-volume} \or
+		\ifentrytype{case-au-year}}{
+			\printfield{venue}{}}}%
+	{}{}%
+	
+\DeclareMultiCiteCommand{\cites}[\mkbibfootnote]{\cite}{\multicitedelim}
+
+\endinput
