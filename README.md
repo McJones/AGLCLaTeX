@@ -23,3 +23,176 @@ Spans of pinpoint references should be separated by two hyphens and no space:
 - ```\cite[312--13 \para{15--18}]{key2000}``` - to use pages and paragraphs with a source that uses page numbers by default.
 
 Introductory signals such as 'See', 'See, eg,' and 'See also' should be enclosed in the prenote field: ```\cite[See][293]{key2000}```. Note that if no pinpoint is included, an empty set of square brackets should be included after the prenote, otherwise the prenote will be taken to be the postnote: ```\cite[See, eg,][]{key2000}```.
+
+**ALGCLaTeX does not currently support sources referring to other sources.***
+
+In compliance with the AGLC:
+
+- Repeated citations print 'Ibid' and a pinpoint or other postnote, unless:
+- the postnote is identical to the previous citation, or
+- there are multiple sources in the previous footnote.
+
+If the postnote is identical, only 'Ibid' is printed. If there are multiple sources in the previous footnote, the surname of the author or editor is printed, followed by ', above n' and the footnote number of the _first_ instance of that source, unless the AGLC requires to be printed in full. If the pinpoint is different, a pinpoint is printed. This requires the document to be compiled _twice_ after running Bibtex.
+
+**AGLCLaTeX does not currently support short titles**
+
+Dates for sources should be in ```YYYY-MM--DD``` format: ```Date = {2000-01-01}```. Individual authors and editors should be separated with 'and' (do not use commas, even for more than two authors): ```Author = {John Smith and Jane Doe}```. Corporate authors should be enclosed in double curly braces to prevent unintended splitting: ```Author: {{Department of Foreign Affairs and Trade}}```.
+
+**AGLCLaTeX does not currently support the headings, titles or bibliography format of the AGLC**
+
+## Domestic sources (legal)
+
+### Cases
+
+AGLCLaTex provides for several different types of cases, as covered by the AGLC:
+
+- ```@case-au-volume``` - Reported cases in a report series arranged by volume.
+- ```@case-au-year``` -Reported cases in a report series arranged by year (which may include volumes within that year).
+- ```@case-au-mnc``` - Unreported cases with a medium neutral citation.
+- ```@case-au-unreported``` - Unreported cases without a medium neutral citation.
+- ```@arbitration``` - Domestic arbitrations.
+- Administrative decisions that are reported or unreported should be cited as cases.
+
+Refer to the AGLC for formatting rules. Note that:
+- Administrative decisions typically use 'and' instead of 'v' to separate party names.
+- Judges' names should conform with the AGLC rules.
+- If necessary, additional information can be included in the postnote.
+
+#### Reported decisions
+
+```
+@case-au-volume{tang2008,
+Title  = {R v Tang}, % the case title
+Year   = {2008}, % the year of the decision (not the year of publication)
+Volume = {237}, % the volume of the report
+Series = {CLR}, % the appreviation of the report series (eg, 'CLR' is 'Commonwealth Law Reports')
+Pages  = {1}} % the page on which the decision starts (not a range)
+
+@case-au-year{bakker1980,
+Title  = {Bakker v Stewart},
+Year   = {1980}, % the year of the volume in which the decision is reported
+Series = {VR},
+Pages  = {17}}
+  
+@case-au-year{rowe1976,
+Title  = {Rowe v McCartney},
+Year   = {1976},
+Volume = {2}, % the individual volume in which the decision is reported (eg, this is volume 2 of the 1976 NSWLR)
+Series = {NSWLR},
+Pages  = {72}}
+```
+
+The ```Pages``` field can be replaced with a different identifier (such as a paragraph number) if that's how the reports are set out.
+
+Both ```@case-au-volume``` and ```@case-au-year``` allow for the ```venue``` field, which may specify the court if relevant or necessary:
+
+```
+@case-au-year{aldrick2000,
+Title  = {Aldrick v EM Investments (Qld) Pty Ltd},
+Year   = {2000},
+Volume = {2},
+Series = {Qd R},
+Pages  = {346},
+Venue  = {Court of Appeal}}
+```
+  
+#### Unreported decisions with a Medium Neutral Citation
+
+```
+@case-au-mnc{quarmby2009,
+Title  = {Quarmby v Keating},
+Date   = {2009-09-09}, % the date of the decision in YYYY-MM-DD
+Venue  = {TASSC}, % the Unique Court Identifier
+Number = {80}} % the judgment number
+```
+#### Unreported decisions without a Medium Neutral Citation
+
+```
+@case-au-unreported{barton1989,
+Title  = {Barton v Chibber},
+Venue  = {Supreme Court of Victoria}, % the court by which the decision was made
+Author = {Hampel J}, % the judge or judges who made the decision
+Date   = {1989-06-29}}
+```
+
+**AGLCLaTeX does not currently support case history**
+
+### Quasi-judicial decisions (administrative decisions and arbitrations)
+
+Administrative decisions should cited as cases (ie, using ```@case-au-volume```, ```@case-au-year```, ```@case-au-mnc``` or ```@case-au-unreported```).
+
+Arbitrations use the ```@arbitration``` entry type. Arbitrations may or may not have a title; if an arbitration does not the title can be safely omitted.
+
+```
+@arbitration{beckman1988,
+Title  = {Beckman Instruments Inc v Overseas Private Investment Corporation}, % the title of the arbitration if given
+Note   = {Award and Opinion}, % the stage of the arbitration or description of the award
+Venue  = {American Arbitration Association Commercial Arbitration Tribunal}, % the forum or names of the arbitrators
+Type   = {Case}, % the type of dispute (eg, case, dispute or award)
+Number = {16 199 00209 87G}, % the number of the dispute (if applicable)
+Date   = {1988-02-20}} % the date of the decision
+```
+
+```
+@arbitration{sandline1998,
+Title  = {Sandline International v Papua New Guinea},
+Note   = {Award},
+Venue  = {Sir Edward Somers, Sir Michael Kerr and Sir Daryl Dawson},
+Date   = {1998-10-09}} % the date of the arbitration
+```
+
+```
+@arbitration{nai1930,
+Note   = {Final Award},
+Venue  = {Netherlands Arbitration Institute},
+Type   = {Case},
+Number = {1930},
+Date   = {1999-10-12}}
+
+```
+
+**AGLCLaTeX does not currently support arbitrations reported in other sources (eg, reported series and books).**
+
+### Transcripts of proceedings
+
+AGLCLaTeX provides for two kinds of court transcripts:
+
+- ```@case-transcript``` - for citing court transcripts in general, and
+- ```@case-transcript-hca``` - for citing High Court of Australia transcripts _from July 2003 onwards_.
+
+If appropriate, the speaker's name can be included in the postnote alongside the pinpoint.
+
+High Court of Australia transcripts are cited very similarly to unreported decisions with Medium Neutral Citations.
+
+```
+@case-transcript{celano2009,
+Title  = {Celano v Swan}, % the title of the case
+Venue  = {County Court of Victoria}, % the court in which the matter was heard
+Number = {09/0867}, % the number of the matter (if applicable)
+Author = {Judge Lacava}, % the judge or judges hearing the matter
+Date   = {2009-08-27}} % the full date
+```
+
+```
+@case-transcript-hca{ruhani2005,
+Title  = {Ruhani v Director of Police},
+Date   = {2005-04-19},
+Number = {205}} % the number that follows 'HCA Trans' in the citation
+```
+
+### Submissions in Cases
+
+```
+@case-submission{agcth2005,
+Author    = {Attorney-General (Cth)}, % the party or person making the submission
+Title     = {Outline of Submissions of the Attorney-General of the Commonwealth as Amicus Curiae}, % the submission title
+Maintitle = {Human Society International Inc v Kyodo Senpaku Kaisha Ltd}, % the case title
+Number    = {NSD 1519/2004}, % the proceeding number
+Date      = {2005-01-25}} % the full date
+```
+
+### Subsequent References
+
+In accordance with the AGLC:
+- `Ibid' is used for all cases and related materials, and
+- `above n' is not used for cases and related materials.
