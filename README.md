@@ -1,5 +1,5 @@
 # AGLCLaTeX
-An Biblatex AGLC style for LaTeX.
+A Biblatex style implementing the Australian Guide to Legal Citation
 
 For general stylistic matters, refer to version 3 of the Australian Guide to Legal Citation.
 
@@ -310,6 +310,8 @@ Location = {Cth}}
 
 #### Explanatory Memoranda, Statements and Notes
 
+AGLCLaTeX uses the ```@bill-au-exp``` entry type for explanatory memorada, statements and note, which are otherwise cited like regular legislation, but with the type of document specified:
+
 ```
 @bill-au-exp{exphrcharter2006vic,
 Type     = {Explanatory Memorandum},
@@ -323,3 +325,125 @@ Location = {Vic}}
 In accordance with the AGLC:
 - 'Ibid' is used for all legislation and related materials, and
 - 'above n' is not used for legislation and related materials.
+
+## Secondary Sources
+
+### Journal Articles
+
+AGLCLaTeX provides for two kind of academic journal article:
+
+- ```@article-volume``` - articles published in journals arranged by volume, and
+- ```@article-year``` - articles published in journals arranged by year.
+
+These are substantially the same in terms of database entries. They may or may not include an article type (for unsigned articles), an issue number or a URL:
+
+Article published in a journal arranged by volume:
+
+```
+@article-volume{kenyon1998,
+Author  = {Andrew Kenyon},
+Title   = {Problems with Defamation Damages?},
+Year    = {1998},
+Volume  = {24},
+Journal = {Monash University Law Review},
+Pages   = {70}}
+```
+
+Article published in a journal arranged by year:
+
+```
+@article-year{dockray1985,
+Author  = {Martin Dockray},
+Title   = {Why Do We Need Adverse Possession?},
+Year    = {1985},
+Journal = {Conveyancer and Property Lawyer},
+Pages   = {272}}
+```
+
+Unsigned article published in a journal arranged by volume:
+
+```
+@article-volume{hlr2005,
+Type    = {Note},
+Title   = {Unfixing \textit{Lawrence}},
+Year    = {2005},
+Volume  = {118},
+Journal = {Harvard Law Review},
+Pages   = {2858}}
+```
+
+Article with issue number:
+
+```
+@article-volume{masters2008,
+Author  = {Jeremy Masters},
+Title   = {Easing the Parting},
+Year    = {2008},
+Volume  = {82},
+Issue   = {11},
+Journal = {Law Institute Journal},
+Pages   = {68}}
+```
+
+Forthcoming article:
+
+```
+@article-year{foster2009,
+Author  = {Michelle Foster},
+Title   = {\textit{Non-Refoulement} on the Basis of Socio-Economic Deprivation: The Scope of Complementary Protection in International Human Rights Law},
+Year    = {2009},
+Journal = {New Zealand Law Review},
+Pages   = {(forthcoming)}}
+```
+
+Article published in parts:
+
+```
+@article-year{gooderson1966pt2,
+Author  = {R N Gooderson},
+Title   = {Claim of Rights and Dispute of Title},
+Part    = {1},
+Year    = {1966},
+Journal = {Cambridge Law Journal},
+Pages   = {216}}
+```
+
+Article published in an electronic journal with pages:
+
+```
+@article-volume{lewins2006,
+Author  = {Kate Lewins},
+Title   = {What's the \textit{Trade Practices Act} Got to Do with It? Section 74 and Towage Contracts in Australia},
+Year    = {2006},
+Volume  = {13},
+Issue   = {1},
+Journal = {eLaw Journal: Murdoch University Electronic Journal of Law},
+Pages   = {58},
+URL     = {https://elaw.murdoch.edu.au/archives/issues/2006/1/eLaw_Lewins_13_2006_05.pdf}}
+```
+
+Article published in an electronic journal without pages:
+
+```
+@article-volume{vancaenegem1996,
+Author  = {William van Caenegem},
+Title   = {Copyright Liability for the Playing of ``Music on Hold'' --- \textit{Telstra Corporation Ltd v Australasian Prforming Rights Association Ltd}},
+Year    = {1996},
+Volume  = {2},
+Journal = {High Court Review},
+URL     = {http://www.austlii.edu.au/au/journals/HCRev/1996/9.html}}
+```
+
+Symposia:
+
+Unsigned article published in a journal arranged by volume:
+
+```
+@article-volume{mulr2002,
+Type    = {Symposium},
+Title   = {Contemporary Human Rights in Australia},
+Year    = {2002},
+Volume  = {26},
+Journal = {Melbourne University Law Review},
+Pages   = {251}}
+```
