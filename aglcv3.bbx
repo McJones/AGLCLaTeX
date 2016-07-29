@@ -348,6 +348,7 @@
 	\newunit%
 	\printlist{publisher}%
 	\newunit%
+	\usebibmacro{edition}%
 	\printfield{year}%
 	\printtext{)}%
 	\printfield{volume}%
@@ -357,9 +358,7 @@
 		\addspace%
 		\printfield{origtitle}%
 		\addspace\printtext{(}%
-		\iffieldundef{edition}{%
-			\printtext{first published}\addspace\printfield{origyear}}{%
-			\printfield{edition}\printtext{ed}\addcomma\addspace\printfield{origyear}}%
+		\printtext{first published}\addspace\printfield{origyear}%
 		\printtext{)]}}{}%
 }
 
