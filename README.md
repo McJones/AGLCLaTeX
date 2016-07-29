@@ -191,8 +191,135 @@ Number    = {NSD 1519/2004}, % the proceeding number
 Date      = {2005-01-25}} % the full date
 ```
 
-### Subsequent References
+#### Subsequent References
 
 In accordance with the AGLC:
-- `Ibid' is used for all cases and related materials, and
-- `above n' is not used for cases and related materials.
+- 'Ibid' is used for all cases and related materials, and
+- 'above n' is not used for cases and related materials.
+
+### Legislative materials
+
+#### Statutes (Acts of Parliament), Australian Constitutions, and Delegated Legislation
+
+AGLCLaTeX uses the ```@act-au``` entry type for statutes, constitutions and delegated legislation:
+
+```
+@act-au{crimesact1958vic,
+Title    = {Crimes Act},
+Year     = {1958}, % the year, even if not included with the legislation
+Location = {Vic}} % the abbreviated jurisdiction
+```
+
+```
+@act-au{ausconstitution,
+Title = {Australian Constitution}} % the AGLC states that more details are unnecessary for the Australian Constitution
+```
+
+```
+@act-au{policeregs2003vic,
+Title    = {Police Regulations},
+Year     = {2003},
+Location = {Vic}}
+```
+
+#### Quasi-Legislative Materials
+
+AGLCLaTeX provides for several different types of quasi-legislative materials, as covered by the AGLC:
+
+- ```@gazette``` - government gazettes,
+- ```@govt-order``` - orders and rulings of government instrumentalities and officers,
+- ```@non-govt-order``` - legislation delegated to non-government entities, and
+- ```@practice-direction``` - court practice directions and practice notes.
+
+Gazette notices can specify an author and a notice title, or neither.
+
+Gazette notice with author and title:
+
+```
+@gazette{gaz1997cth,
+Author    = {Minister for Lands (WA)}, % the author of the notice (optional)
+Title     = {\textit{Land Acquisition and Public Works Act 1902 --- Native Title Act 1993} (Commonwealth) --- Notice of Intention to Take Land for a Public Work}, % the title of the notice (optional)
+Location  = {Western Australia}, % the jurisdiction of the gazette (eg, Commonwealth, New South Wales, Western Australia)
+Maintitle = {Western Australian Government Gazette} % the title of the gazette
+Number    = {27}, % the gazette number
+Date      = {1997-02-18}, % the full date
+Pages     = {1142}} % the starting page only
+```
+Gazette with notice title:
+
+```
+@gazette{gaz1989act,
+Title     = {Australian Capital Territory Teaching Service},
+Location  = {Australian Capital Territory},
+Maintitle = {Australia Capital Territory Gazette},
+Number    = {1},
+Date      = {1989-05-24},
+Pages     = {3}}
+```
+
+Gazette without author or notice title:
+
+```
+@gazette{gaz2004cth,
+Location  = {Commonwealth},
+Maintitle = {Gazette: Special},
+Number    = {S 489},
+Date      = {2004-12-01}}
+```
+
+Orders and rulings of government instrumentalities and officers
+
+```
+@govt-order{ato2005,
+Author = {{Australian Taxation Office}},
+Title  = {Income Tax: Carrying on a Business as a Professional Artist},
+Number = {TR 2005/1},
+Date   = {2005-01-12}}
+```
+
+Legislation delegated to non-government entities:
+
+```
+@non-govt-order{asx2010,
+Institution = {Australian Securities Exchange},
+Title       = {Listing Rules},
+Date        = {2010-01-11}}
+```
+
+Court practice directions and practice notes:
+
+```
+@practice-direction{hcapd2006,
+Institution = {High Court of Australia},
+Type        = {Practice Direction},
+Number      = {3 of 2006},
+Title       = {Amendment of Practice Directio No 1 of 2000},
+Date        = {2006-09-05}}
+```
+
+#### Bills
+
+AGLCLaTeX uses the ```@bill-au``` entry type for bills, which are otherwise cited like regular legislation:
+
+```
+@bill-au{corpamendbill2005cth,
+Title    = {Corporations Amendment Bill No 1},
+Year     = {2005},
+Location = {Cth}}
+```
+
+#### Explanatory Memoranda, Statements and Notes
+
+```
+@bill-au-exp{exphrcharter2006vic,
+Type     = {Explanatory Memorandum},
+Title    = {Charter of Human Rights and Responsibilities Bill},
+Year     = {2006},
+Location = {Vic}}
+```
+
+#### Subsequent References
+
+In accordance with the AGLC:
+- 'Ibid' is used for all legislation and related materials, and
+- 'above n' is not used for legislation and related materials.
