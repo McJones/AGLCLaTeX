@@ -13,6 +13,8 @@ For general stylistic matters, refer to version 3 of the Australian Guide to Leg
   - [Other sources](#other-sources)
 - [International materials](#international-materials)
   - [Treaties](#treaties)
+  - [UN Materials](#united-nations-materials)
+  - [ICJ and PCIJ](#international-court-of-justice-and-permanent-court-of-international-justice)
 
 ## General
 
@@ -1267,7 +1269,17 @@ In accordance with the AGLC:
 - 'Ibid' is used for treaties, and
 - 'above n' is not used.
 
-**AGLCLaTeX does not currently support short titles**
+### United Nations materials
+
+**AGLCLaTeX does not currently support United Nations materials**
+
+### International Court of Justice and Permanent Court of International Justice
+
+#### Constitutive and basic documents
+
+**AGLCLaTeX does not currently support constitutive or basic documents of the ICJ or PCIJ**
+
+#### Decisions
 
 **AGLCLaTeX does not currently support other international materials**
 
