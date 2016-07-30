@@ -4,6 +4,15 @@ A Biblatex style implementing the Australian Guide to Legal Citation
 For general stylistic matters, refer to version 3 of the Australian Guide to Legal Citation.
 
 - [General](#general)
+- [Domestic sources](#domestic-sources)
+  - [Cases](#cases)
+  - [Legislation](#legislative-materials)
+- [Secondary sources](#secondary-sources)
+  - [Journal articles](#journal-articles)
+  - [Books](#books)
+  - [Other sources](#other-sources)
+- [International materials](#international-materials)
+  - [Treaties](#treaties)
 
 ## General
 
@@ -42,7 +51,7 @@ Dates for sources should be in ```YYYY-MM--DD``` format: ```Date = {2000-01-01}`
 
 **AGLCLaTeX does not currently support the headings, titles or bibliography format of the AGLC**
 
-## Domestic sources (legal)
+## Domestic sources
 
 ### Cases
 
