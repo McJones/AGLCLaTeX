@@ -3,6 +3,8 @@ A Biblatex style implementing the Australian Guide to Legal Citation
 
 For general stylistic matters, refer to version 3 of the Australian Guide to Legal Citation.
 
+- [General](#general)
+
 ## General
 
 AGLCLaTeX provides three citation commands:
