@@ -60,6 +60,8 @@ Refer to the AGLC for formatting rules. Note that:
 
 #### Reported decisions
 
+_R v Tang_ (2008) 237 CLR 1.
+
 ```
 @case-au-volume{tang2008,
 Title  = {R v Tang},
@@ -67,13 +69,21 @@ Year   = {2008},
 Volume = {237},
 Series = {CLR},
 Pages  = {1}}
+```
 
+_Bakker v Stewart_ [1980] VR 70.
+
+```
 @case-au-year{bakker1980,
 Title  = {Bakker v Stewart},
 Year   = {1980},
 Series = {VR},
 Pages  = {17}}
-  
+```
+
+_Rowe v McCartney_ [1976] 2 NSWLR 72.
+
+```
 @case-au-year{rowe1976,
 Title  = {Rowe v McCartney},
 Year   = {1976},
@@ -86,6 +96,8 @@ The ```Pages``` field can be replaced with a different identifier (such as a par
 
 Both ```@case-au-volume``` and ```@case-au-year``` allow for the ```venue``` field, which may specify the court if relevant or necessary:
 
+_Aldrick v EM Investments (Qld) Pty Ltd_ [2000] 2 Qd R 346 (Court of Appeal).
+
 ```
 @case-au-year{aldrick2000,
 Title  = {Aldrick v EM Investments (Qld) Pty Ltd},
@@ -95,8 +107,10 @@ Series = {Qd R},
 Pages  = {346},
 Venue  = {Court of Appeal}}
 ```
-  
+
 #### Unreported decisions with a Medium Neutral Citation
+
+_Quarmby v Keating_ [2009] TASSC 80 (9 September 2009).
 
 ```
 @case-au-mnc{quarmby2009,
@@ -105,7 +119,10 @@ Date   = {2009-09-09},
 Venue  = {TASSC},
 Number = {80}}
 ```
+
 #### Unreported decisions without a Medium Neutral Citation
+
+_Barton v Chibber_ (Unreported, Supreme Court of Victoria, Hampel J, 29 June 1989).
 
 ```
 @case-au-unreported{barton1989,
@@ -1130,6 +1147,117 @@ In accordance with the AGLC:
   - interviews, and
   - written correspondence.
 
-**AGLCLaTeX does not currently support international materials**
+## International materials
+
+### Treaties
+
+AGLCLaTeX provides for three kinds of treaties:
+
+- ```@treaty-volume``` - for treaties published in a treaty series organised by volume (eg, UNTS),
+- ```@treaty-year``` - for treaties published in a treaty series organised by year (eg, ATS), and
+- ```@treaty-number``` - for treaties published in a treaty series organised by sequential order (eg, CETS).
+
+Each also accepts the same four types:
+
+- ```Type = {open-if}``` - for open multilateral treaties which are in force,
+- ```Type = {open-nif}``` - for open multilateral treaties which are not yet in force,
+- ```Type = {closed-if}``` - for closed treaties which are in force, and
+- ```Type = {closed-nif}``` - for closed treaties which are not yet in force.
+
+AGLCLaTeX implements the complicated rules that the AGLC sets out for each in chapter 7. It's unnecessary to repeat those rules, but to explain the operation:
+
+- ```Type = {open-if}``` and ```Type = {open-nif}``` will print 'opened for signature DD MM YYYY' where appropriate.
+- ```Type = {closed-if}``` and ```Type = {closed-nif}``` will print 'signed DD MM YYYY' where appropriate.
+- ```Type = {open-if}``` and ```Type = {closed-if}``` will print '(entered into force DD MM YYYY)' where appropriate.
+- ```Type = {open-nif}``` and ```Type = {closed-nif}``` will print '(not yet in force)' where appropriate.
+
+The ```Origdate``` field is used for the _date of conclusion_ of the treaty (ie, the date it was signed). The ```Date``` field is used for the _entry into force date_.
+
+The entry into force date will _always_ be later than the date of conclusion, unless the treaty was signed and entered into force at the same time. If a treaty is not yet in force, the ```Date``` field can be safely omitted.
+
+In the case of treaties that were concluded and entered into force on the same date, repeat the date in both the ```Origdate``` and ```Date``` fields. This will then print '(signed and entered into force DD MM YYYY)' where appropriate.
+
+The ```Author``` field contains the parties to the treaty, but should be omitted if there are more than three, and should be separated by en-dashes (in LaTeX, --) in accordance with the AGLC. Parties should also be omitted if named in the title of the treaty.
+
+For treaties published in a series arranged by year, the year should be put in the ```Volume``` field.
+
+The ```Pages``` field should be used for the starting page _only_ of the treaty where relevant.
+
+Illustrated examples are given below.
+
+1. _Treaty on the Non-Proliferation of Nuclear Weapons_, opened for signature 1 July 1968, 729 UNTS 161 (entered into force 5 March 1970).
+
+```
+@treaty-volume{npt1968,
+Title    = {Treaty on the Non-Proliferation of Nuclear Weapons},
+Type     = {open-if},
+Origdate = {1968-07-01},
+Volume   = {729},
+Series   = {UNTS},
+Pages    = {161},
+Date     = {1970-03-05}}
+```
+
+2. _Agreement regarding the Transfer of the Administration of Justice in the Territories of Northern Slesvig_, Denmark–Germany, signed 12 July 1921, 8 LNTS 397 (entered into force 17 January 1922).
+
+```
+@treaty-volume{slesvig1921,
+Title    = {Agreement regarding the Transfer of the Administration of Justice in the Territories of Northern Slesvig},
+Author   = {Denmark--Germany},
+Type     = {closed-if},
+Origdate = {1921-07-12},
+Volume   = {8},
+Series   = {LNTS},
+Pages    = {397},
+Date     = {1922-01-17}}
+```
+
+3. _Statute of the International Renewable Energy Agency_, opened for signature 26 January 2009, [2009] ATNIF 23 (not yet in force).
+
+```
+@treaty-year{sirea2009,
+Title    = {Statute of the International Renewable Energy Agency},
+Type     = {open-nif},
+Origdate = {2009-01-26},
+Volume   = {2009},
+Series   = {ATNIF},
+Number   = {23}}
+```
+
+4. _Agreement Relating to Co-operation on Antitrust Matters_, Australia–United States of America, 1369 UNTS 43 (signed and entered into force 29 June 1982).
+
+```
+@treaty-volume{antitrust1982,
+Title    = {Agreement Relating to Co-operation on Antitrust Matters},
+Author   = {Australia--United States of America},
+Type     = {closed-if},
+Origdate = {1982-06-29},
+Volume   = {1369},
+Series   = {UNTS},
+Pages    = {43},
+Date     = {1982-06-29}}
+```
+
+5. _Convention on Cybercrime_, opened for signature 23 November 2001, ETS No 185 (entered into force 1 July 2004).
+
+```
+@treaty-number{coc2004,
+Title    = {Convention on Cybercrime},
+Type     = {open-if},
+Origdate = {2001-11-23},
+Series   = {ETS},
+Number   = {185},
+Date     = {2004-07-01}}
+```
+
+#### Subsequent references
+
+In accordance with the AGLC:
+- 'Ibid' is used for treaties, and
+- 'above n' is not used.
+
+**AGLCLaTeX does not currently support short titles**
+
+**AGLCLaTeX does not currently support other international materials**
 
 **AGLCLaTeX does not currently support foreign domestic materials**
