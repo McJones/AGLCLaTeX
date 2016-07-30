@@ -937,3 +937,199 @@ Type   = {Media Release},
 Date   = {2009-05-05},
 URL    = {http://www.asx.com.au/about/pdf/ma050509_monthly_activity_report_april09.pdf}}
 ```
+
+#### Working papers
+
+```
+@workingpaper{tapking2004,
+Author      = {Jens Tapking and Jing Yang},
+Title       = {Horizontal and Vertical Integration in Securities Trading and Settlement},
+Type        = {Working Paper},
+Number      = {245},
+Institution = {Bank of England},
+Date        = {2004}}
+```
+
+```
+@workingpaper{memmott2008
+Author      = {Paul Memmott and Peter Blackwood},
+Title       = {Holding Title and Managing Land in Cape York --- Two Case Studies},
+Type        = {Research Discussion Paper},
+Number      = {21},
+Institution = {Bank of England},
+Date        = {2004}}
+```
+
+```
+@workingpaper{moser1998,
+Author      = {Caroline O N Moser and Annika Tornqvist and Bernice van Bronkhorst},
+Title       = {Mainstreaming Gender and Development in the World Bank: Progress and Recommendations},
+Type        = {Report},
+Institution = {World Bank},
+Date        = {1998}}
+```
+
+```
+@workingpaper{howe2006,
+Author      = {John Howe and Ingrid Landau},
+Title       = {``Light Touch'' Labour Regulation by State Governments in Australia: A Preliminary Assessment},
+Type        = {Working Paper},
+Number      = {40},
+Institution = {Centre for Employment and Labour Relations Law, The University of Melbourne},
+Date        = {2006-12},
+URL         = {http://papers.ssrn.com/sol3/papers.cfm?abstract_id=961528}}
+```
+
+#### Theses
+
+```
+@thesis{muller2005,
+Author      = {Denis Joseph Andrew Muller},
+Title       = {Media Accountability in a Liberal Democracy --- An Examination of the Harlot's Prerogative},
+Type        = {PhD Thesis},
+Institution = {The University of Melbourne},
+Year        = {2005}}
+```
+
+```
+@thesis{champsaur2005,
+Author      = {Am\'{e}lie Champsaur},
+Title       = {The Regulation of Credit Rating Agencies in the US and the EU: Recent Initiatives and Proposals},
+Type        = {LLM Thesis},
+Institution = {Harvard University},
+Year        = {2005},
+URL         = {http://www.law.harvard.edu/ programs/about/pifs/education/sp19.pdf}}
+```
+
+#### Conference papers
+
+Also accepts the ```URL``` field.
+
+```
+@conference{orford2008,
+Author      = {Anne Orford},
+Title       = {Roman Law and the Godly Imperium in England's New Worlds},
+Venue       = {the Workshop on the Theo-Political Renaissance},
+Location    = {Department of English, Cornell University},
+Date        = {2008-04-25}}
+```
+
+#### Speeches
+
+```
+@speech{french2009,
+Author      = {Chief Justice Robert French},
+Title       = {Native Title --- A Constitutional Shift?},
+Venue       = {JD Lecture Series},
+Location    = {The University of Melbourne},
+Date        = {2009-03-24},
+URL         = {http://www.hcourt.gov.au/publications_05.html}}
+```
+
+#### Interviews
+
+Interviews conducted by the author, or by someone else, are both cited using ```@interview```. Note that the field ```Author``` refers to the interviewer, and ```Commentator``` refers to the intervieee. Where interviews are conducted by the author of the work in which they are being cited, the ```Author``` field should be omitted in accordance with the AGLC. Either the location or the type of interview may be included (but do not use both).
+
+```
+@interview{dunn2005,
+Commentator = {Philip Dunn},
+Location    = {Melbourne},
+Date        = {2005-10-19}}
+```
+
+```
+@interview{roxon2005,
+Commentator = {Nicola Roxon, Shadow Attorney General},
+Type        = {Doorstop Interview},
+Date        = {2005-11-02}}
+```
+
+```
+@interview{oakes2005,
+Author      = {Laurie Oakes},
+Commentator = {John Howard, Prime Minister of Australia},
+Type        = {Television Interview},
+Date        = {2005-10-30}}
+```
+
+#### Written correspondence
+
+The ```Author``` field refers to the writer of the correspondence, and the field ```Holder``` refers to the recipient. The ```URL``` field is supported.
+
+```
+@correspondence{barrington2001,
+Type   = {Email},
+Author = {Jonathon Barrington},
+Holder = {Deborah Horowitz},
+Date   = {2001-05-17}}
+```
+
+```
+@correspondence{deloitte2008,
+Type   = {Letter},
+Author = {Deloitte Touche Tohmatsu},
+Holder = {Opes Primes Clients},
+Date   = {2008-04-01},
+URL    = {http://www.deloitte.com.au/media/docs/OpesPrime_groupcircular.pdf}}
+```
+
+#### Internet materials
+
+AGLCLaTeX provides for two types of Internet materials not already covered above:
+
+- ```@online``` - for webpages and materials on the Internet generally, and
+- ```@blog``` - for blogs and forum posts.
+
+Note that for webpages, etc, if the name of the author is the same as the website name, the website name is to be omitted in accordance with the AGLC. The date may also be omitted if unavailable. The field ```Organization``` takes the website name.
+
+```
+@online{boe2010,
+Author       = {Board of Examiners},
+Title        = {Admission Requirements},
+Date         = {2010-02-18},
+Organization = {Council of Legal Education},
+URL          = {http://www.lawadmissions.vic.gov.au}}
+```
+
+```
+@online{dcsgwa,
+Author       = {Department of Corrective Services, Government of Western Australia},
+Title        = {Victim-Offender Mediation},
+URL          = {http://www.correctiveservices.wa.gov.au/victim-services/victim-offender-mediation/}}
+```
+
+```
+@online{who1997,
+Author = {World Health Organisation},
+Title  = {Violence Against Women: A Priority Health Issue},
+Date   = {1997},
+URL    = {http://www.who.int/gender/violence/prioreng/en/}}
+```
+
+For blogs and forums, the ```Author``` field refers to the author of the individual post, the ```Editor``` field to the author of the blog or forum. If there is no apparent regular author, ```Editor``` can be omitted.
+
+```
+@blog{gans2008,
+Author       = {Jeremy Gans},
+Title        = {The \textit{Charter} vs Eviction},
+Editor       = {Jeremy Gans},
+Organization = {Charterblog: Analysis of Victoria's Charter of Human Rights},
+Date         = {2008-07-12},
+URL          = {http://charterblog.wordpress.com/2008/07/12/the-charter-vs-eviction}}
+```
+
+#### Subsequent references
+
+In accordance with the AGLC:
+
+- 'Ibid' is used for all other sources, and
+- 'above n' is used for all other sources, except:
+  - parliamentary debates/Hansard,
+  - evidence to parliamentary committees,
+  - Australian constitutional convention debates,
+  - interviews, and
+  - written correspondence.
+
+**AGLCLaTeX does not currently support international materials**
+
+**AGLCLaTeX does not currently support foreign domestic materials**
