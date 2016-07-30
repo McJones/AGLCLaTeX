@@ -139,7 +139,10 @@
 				\ifentrytype{parl-comm-evidence} \or%
 				\ifentrytype{debate} \or%
 				\ifentrytype{interview} \or%
-				\ifentrytype{correspondence}}{%
+				\ifentrytype{correspondence}
+				\ifentrytype{treaty-volume} \or%
+				\ifentrytype{treaty-year} \or%
+				\ifentrytype{treaty-number}}{%
 				\usedriver{}{\thefield{entrytype}}}{%
 				\usebibmacro{author/editor:surname}\addcomma\addspace{above n}\addspace\ref{cbx@\csuse{cbx@\thefield{entrykey}}}\ifloccit{}{\addcomma}\printfield{postnote}}}{%
 			\usebibmacro{cite:save}%

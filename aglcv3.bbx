@@ -821,4 +821,82 @@
 \DeclareFieldFormat[blog]{title}{`#1'}
 \DeclareListFormat[blog]{organization}{\textit{#1}}
 
+% Treaties
+
+\DeclareBibliographyAlias{treaty-volume}{legal}
+
+\DeclareBibliographyDriver{treaty-volume}{%
+	\printfield{title}%
+	\newunit%
+	\printnames{author}%
+	\newunit%
+	\usebibmacro{signed}%
+	\newunit%
+	\printfield{volume}%
+	\printfield{series}%
+	\printfield{pages}%
+	\printtext{(}%
+	\usebibmacro{eif}%
+	\printtext{)}%
+}
+
+\DeclareBibliographyDriver{treaty-year}{%
+	\printfield{title}%
+	\newunit%
+	\printnames{author}%
+	\newunit%
+	\usebibmacro{signed}%
+	\newunit%
+	\printfield{volume}%
+	\printfield{series}%
+	\printfield{pages}%
+	\printfield{number}%
+	\printtext{(}%
+	\usebibmacro{eif}%
+	\printtext{)}%
+}
+
+\DeclareBibliographyDriver{treaty-number}{%
+	\printfield{title}%
+	\newunit%
+	\printnames{author}%
+	\newunit%
+	\usebibmacro{signed}%
+	\newunit%
+	\printfield{volume}%
+	\printfield{series}%
+	\printfield{number}%
+	\printtext{(}%
+	\usebibmacro{eif}%
+	\printtext{)}%
+}
+
+\DeclareFieldFormat[treaty-volume]{volume}{#1\addspace}
+\DeclareFieldFormat[treaty-year]{volume}{[#1]\addspace}
+\DeclareFieldFormat[treaty-volume,treaty-year,treaty-number]{series}{#1\addspace}
+\DeclareFieldFormat[treaty-volume,treaty-year]{pages}{#1\addspace}
+\DeclareFieldFormat[treaty-year]{number}{#1\addspace}
+\DeclareFieldFormat[treaty-number]{number}{No\addspace#1\addspace}
+
+\newbibmacro{signed}{%
+	\iffieldequalstr{type}{open-if}{%
+		\printtext{opened for signature}\addspace\printorigdate}{%
+		\iffieldequalstr{type}{open-nif}{%
+			\printtext{opened for signature\addspace\printorigdate}}{%
+			\iffieldsequal{year}{origyear}{}{%
+				\printtext{signed}\addspace\printorigdate}}}%
+}
+
+\newbibmacro{eif}{%
+	\iffieldequalstr{type}{open-if}{%
+		\printtext{entered into force}\addspace\printdate}{%
+		\iffieldequalstr{type}{open-nif}{%
+			\printtext{not yet in force}}{%
+			\iffieldsequal{year}{origyear}{%
+				\printtext{signed and entered into force}\addspace\printdate}{%
+				\printtext{not yet in force}}}}%
+}
+
+
+
 \endinput
