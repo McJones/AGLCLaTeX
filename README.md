@@ -60,7 +60,7 @@ Refer to the AGLC for formatting rules. Note that:
 
 #### Reported decisions
 
-_R v Tang_ (2008) 237 CLR 1.
+- _R v Tang_ (2008) 237 CLR 1.
 
 ```
 @case-au-volume{tang2008,
@@ -71,7 +71,7 @@ Series = {CLR},
 Pages  = {1}}
 ```
 
-_Bakker v Stewart_ [1980] VR 70.
+- _Bakker v Stewart_ [1980] VR 70.
 
 ```
 @case-au-year{bakker1980,
@@ -81,7 +81,7 @@ Series = {VR},
 Pages  = {17}}
 ```
 
-_Rowe v McCartney_ [1976] 2 NSWLR 72.
+- _Rowe v McCartney_ [1976] 2 NSWLR 72.
 
 ```
 @case-au-year{rowe1976,
@@ -96,7 +96,7 @@ The ```Pages``` field can be replaced with a different identifier (such as a par
 
 Both ```@case-au-volume``` and ```@case-au-year``` allow for the ```venue``` field, which may specify the court if relevant or necessary:
 
-_Aldrick v EM Investments (Qld) Pty Ltd_ [2000] 2 Qd R 346 (Court of Appeal).
+- _Aldrick v EM Investments (Qld) Pty Ltd_ [2000] 2 Qd R 346 (Court of Appeal).
 
 ```
 @case-au-year{aldrick2000,
@@ -110,7 +110,7 @@ Venue  = {Court of Appeal}}
 
 #### Unreported decisions with a Medium Neutral Citation
 
-_Quarmby v Keating_ [2009] TASSC 80 (9 September 2009).
+- _Quarmby v Keating_ [2009] TASSC 80 (9 September 2009).
 
 ```
 @case-au-mnc{quarmby2009,
@@ -122,7 +122,7 @@ Number = {80}}
 
 #### Unreported decisions without a Medium Neutral Citation
 
-_Barton v Chibber_ (Unreported, Supreme Court of Victoria, Hampel J, 29 June 1989).
+- _Barton v Chibber_ (Unreported, Supreme Court of Victoria, Hampel J, 29 June 1989).
 
 ```
 @case-au-unreported{barton1989,
