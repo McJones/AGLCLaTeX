@@ -24,7 +24,7 @@ Spans of pinpoint references should be separated by two hyphens and no space:
 
 Introductory signals such as 'See', 'See, eg,' and 'See also' should be enclosed in the prenote field: ```\cite[See][293]{key2000}```. Note that if no pinpoint is included, an empty set of square brackets should be included after the prenote, otherwise the prenote will be taken to be the postnote: ```\cite[See, eg,][]{key2000}```.
 
-**ALGCLaTeX does not currently support sources referring to other sources.***
+**ALGCLaTeX does not currently support sources referring to other sources.**
 
 In compliance with the AGLC:
 
