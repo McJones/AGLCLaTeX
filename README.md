@@ -1185,7 +1185,7 @@ The ```Pages``` field should be used for the starting page _only_ of the treaty 
 
 Illustrated examples are given below.
 
-1. _Treaty on the Non-Proliferation of Nuclear Weapons_, opened for signature 1 July 1968, 729 UNTS 161 (entered into force 5 March 1970).
+- _Treaty on the Non-Proliferation of Nuclear Weapons_, opened for signature 1 July 1968, 729 UNTS 161 (entered into force 5 March 1970).
 
 ```
 @treaty-volume{npt1968,
@@ -1198,7 +1198,7 @@ Pages    = {161},
 Date     = {1970-03-05}}
 ```
 
-2. _Agreement regarding the Transfer of the Administration of Justice in the Territories of Northern Slesvig_, Denmark–Germany, signed 12 July 1921, 8 LNTS 397 (entered into force 17 January 1922).
+- _Agreement regarding the Transfer of the Administration of Justice in the Territories of Northern Slesvig_, Denmark–Germany, signed 12 July 1921, 8 LNTS 397 (entered into force 17 January 1922).
 
 ```
 @treaty-volume{slesvig1921,
@@ -1212,7 +1212,7 @@ Pages    = {397},
 Date     = {1922-01-17}}
 ```
 
-3. _Statute of the International Renewable Energy Agency_, opened for signature 26 January 2009, [2009] ATNIF 23 (not yet in force).
+- _Statute of the International Renewable Energy Agency_, opened for signature 26 January 2009, [2009] ATNIF 23 (not yet in force).
 
 ```
 @treaty-year{sirea2009,
@@ -1224,7 +1224,7 @@ Series   = {ATNIF},
 Number   = {23}}
 ```
 
-4. _Agreement Relating to Co-operation on Antitrust Matters_, Australia–United States of America, 1369 UNTS 43 (signed and entered into force 29 June 1982).
+- _Agreement Relating to Co-operation on Antitrust Matters_, Australia–United States of America, 1369 UNTS 43 (signed and entered into force 29 June 1982).
 
 ```
 @treaty-volume{antitrust1982,
@@ -1238,7 +1238,7 @@ Pages    = {43},
 Date     = {1982-06-29}}
 ```
 
-5. _Convention on Cybercrime_, opened for signature 23 November 2001, ETS No 185 (entered into force 1 July 2004).
+- _Convention on Cybercrime_, opened for signature 23 November 2001, ETS No 185 (entered into force 1 July 2004).
 
 ```
 @treaty-number{coc2004,
