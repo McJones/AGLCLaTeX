@@ -6,7 +6,7 @@ For general stylistic matters, refer to version 3 of the Australian Guide to Leg
 - [General](#general)
 - [Domestic sources](#domestic-sources)
   - [Cases](#cases)
-  - [Legislation](#legislative-materials)
+  - [Legislative materials](#legislative-materials)
 - [Secondary sources](#secondary-sources)
   - [Journal articles](#journal-articles)
   - [Books](#books)
