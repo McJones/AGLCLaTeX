@@ -722,3 +722,218 @@ Title    = {Official Report of the National Australasian Convention Debates},
 Location = {Adelaide},
 Date     = {1897-03-29}}
 ```
+
+#### Submissions to public inquiries
+
+```
+@submission{mobil2007,
+Author      = {Mobil Oil Australia},
+Number      = {25},
+Institution = {Australian Competition and Consumer Commission},
+Title       = {Inquiry into the Price of Unleaded Petrol},
+Date        = {2007-07-27}}
+```
+
+```
+@submission{hrlrc2009,
+Author      = {Human Rights Law Resource Centre},
+Number      = {21},
+Institution = {Senate Standing Committee on Legal and Constitutional Affairs},
+Venue       = {Parliament of Australia},
+Title       = {Inquiry into the Anti-Terrorism Laws Reform Bill 2009},
+Date        = {2009-09-11}}
+```
+
+```
+@submission{vacc2005,
+Author      = {Victorian Automobile Chamber of Commerce},
+Institution = {Road Safety Committee},
+Venue       = {Parliament of Victoria},
+Title       = {Inquiry into Driver Distraction},
+Date        = {2005-10}}
+```
+
+```
+@submission{aida2008,
+Author      = {Australian Indigenous Doctors' Association},
+Number      = {187},
+Institution = {Northern Territory Emergency Response Review},
+Date        = {2008-08-22}}
+```
+
+#### Legal encyclopedia
+
+```
+@legal-encyclopedia{halsburys2009,
+Publisher = {LexisNexis},
+Booktitle = {Halsbury's Laws of Australia},
+Volume    = {5},
+Date      = {2009-05-25},
+Title     = {235 Insurance},
+Chapter   = {2 General Principles}}
+```
+
+```
+@legal-encyclopedia{lawbook2000,
+Publisher = {Lawbook},
+Booktitle = {The Laws of Australia},
+Date      = {2000-08-31},
+Title     = {24 International Trade},
+Chapter   = {2 Foreign Investment}}
+```
+
+#### Looseleaf services
+
+```
+@looseleaf{civprocvicvol1,
+Publisher = {LexisNexis Butterworths},
+Title     = {Civil Procedure: Victoria},
+Volume    = {1},
+Version   = {Service 231}}
+```
+
+```
+@looseleaf{jacobsvol1r5,
+Author    = {Marcus S Jacobs},
+Publisher = {Thomson Reuters},
+Title     = {International Commercial Arbitration in Australia: Law and Practice},
+Volume    = {1},
+Version   = {Release 5}}
+```
+
+```
+@looseleaf{cchintl68108,
+Publisher = {CCH International},
+Title     = {Japan Business Law Guide},
+Volume    = {1},
+Version   = {68-1-08}}
+```
+
+```
+@looseleaf{carter2009,
+Author    = {J W Carter},
+Publisher = {LexisNexis},
+Title     = {Carter on Contract},
+Date      = {2009-01-10}}
+```
+
+#### Newspaper articles
+
+Newspaper articles provide the ```URL``` field, which should only be used for electronic newspaper articles. ```Journal``` is used for the title of the newspaper, and ```title``` for the title of the article.
+
+Print article with author:
+
+```
+@newspaper{howard2006,
+Author   = {Stephen Howard and Billy Briggs},
+Title    = {Law Lords Back School's Ban on Islamic Dress},
+Journal  = {The Herald},
+Location = {Glasgow},
+Date     = {2006-03-23}}
+```
+
+Print article with section:
+
+```
+@newspaper{hunter2009,
+Author   = {Abigail Hunter},
+Title    = {He Stole My Son, Now I'm Alone in Hell},
+Chapter  = {Times2},
+Journal  = {The Times},
+Location = {London},
+Date     = {2009-12-03}}
+```
+
+Print article without author:
+
+```
+@newspaper{afr2006,
+Title    = {Fury at WA Council Plan},
+Journal  = {The Australian Financial Review},
+Location = {Sydney},
+Date     = {2006-05-01}}
+```
+
+Editorial:
+
+```
+@newspaper{theage2004,
+Type     = {Editorial},
+Title    = {Medicare by Name, No Longer by Nature},
+Chapter  = {News},
+Journal  = {The Age},
+Location = {Melbourne},
+Date     = {2004-03-12}}
+```
+
+Letter to the editor:
+
+```
+@newspaper{healy2002,
+Author   = {Rose Healy},
+Type     = {Letter to the Editor},
+Journal  = {The Herald Sun},
+Location = {Melbourne},
+Date     = {2002-06-10}}
+```
+
+Electronic newspaper article:
+
+```
+@newspaper{tomazin2009,
+Author   = {Farrah Tomazin},
+Title    = {Kinder Wages Breakthrough},
+Journal  = {The Age},
+Location = {online},
+Date     = {2009-05-19},
+URL      = {http://www.theage.com.au/national/education/kinder-wages-breakthrough-20090519-bcwh.html}}
+```
+
+#### Television and radio transcripts
+
+```
+@transcript{abcnrlawrep2009,
+Publisher = {ABC Radio National},
+Title     = {Inventions: Who Owns Them?},
+Maintitle = {The Law Report},
+Date      = {2009-09-08},
+URL       = {http://www.abc.net.au/rn/lawreport/stories/2009/2678819.htm#transcript}}
+```
+
+#### Film and audiovisual recordings
+
+```
+@film{jacobson1996,
+Title     = {Calling the Ghosts: A Story About Rape, War and Women},
+Author    = {Mandy Jacobson and Karmen Jelincic},
+Publisher = {Bowery Productions},
+Year      = {1996}}
+```
+
+```
+@film{mulligan1962,
+Title     = {To Kill a Mockingbird},
+Author    = {Robert Mulligan},
+Publisher = {Brentwood Productions},
+Year      = {1962}}
+```
+
+#### Press and media releases
+
+```
+@pressrelease{dod2009,
+Author = {Department of Defence (Cth)},
+Title  = {Highest East Timorese Honour for Army Officers},
+Type   = {Media Release},
+Number = {MSPA 172/09},
+Date   = {2009-05-22},
+```
+
+```
+@pressrelease{asx2009,
+Author = {Australian Stock Exchange},
+Title  = {ASX Group Monthly Activity Report --- April 2009},
+Type   = {Media Release},
+Date   = {2009-05-05},
+URL    = {http://www.asx.com.au/about/pdf/ma050509_monthly_activity_report_april09.pdf}}
+```
