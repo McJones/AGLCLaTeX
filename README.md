@@ -1281,6 +1281,51 @@ In accordance with the AGLC:
 
 #### Decisions
 
+AGLCLaTeX provides for both International Court of Justice and Permanent Court of International Justice decisions:
+
+- ```@case-icj``` - for International Court of Justice decisions, and
+- ```@case-pcij``` - for Permanent Court of International Justice decisions.
+
+The first three fields of each are the same:
+
+- ```Title``` takes the case name and if applicable the parties' names, which should go in parentheses,
+- ```Type``` takes the phase or type of the decision (eg, 'Judgment', 'Jurisdiction' or 'Advisory Opinion'), and
+- ```Year``` takes the year of the volume of the report series.
+
+ICJ cases have one additional field:
+
+- ```Pages``` takes the starting page only of the case.
+
+PCIJ cases have two additional fields:
+
+- ```Series``` takes the letter of the series (either 'A', 'B' or 'A/B'), and
+- ```Number``` takes the number of the decision.
+
+```
+@case-icj{easttimor1995,
+Title = {East Timor (Portugal v Australia)},
+Type = {Judgment},
+Year = {1995},
+Pages = {90}}
+```
+
+```
+@case-icj{westernsahara1975,
+Title = {Western Sahara},
+Type = {Advisory Opinion},
+Year = {1975},
+Pages = {12}}
+```
+
+```
+@case-pcij{mavrommatis1924,
+Title = {Mavrommatis Palestine Concessions (Greece v United Kingdom)},
+Type = {Jurisdiction},
+Year = {1924},
+Series = {A},
+Number = {2}}
+```
+
 **AGLCLaTeX does not currently support other international materials**
 
 **AGLCLaTeX does not currently support foreign domestic materials**

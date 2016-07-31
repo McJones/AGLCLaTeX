@@ -20,7 +20,7 @@
     
 \DeclareFieldFormat{prenote}{#1\addspace}
 
-\DeclareFieldFormat[case-au-volume,case-au-year,case-submission]{postnote}{%
+\DeclareFieldFormat[case-au-volume,case-au-year,case-submission,case-icj,case-pcij]{postnote}{%
 	\ifciteibid{%
 		\ifloccit{}{%
 			\addspace#1}}{%
@@ -142,7 +142,9 @@
 				\ifentrytype{correspondence}
 				\ifentrytype{treaty-volume} \or%
 				\ifentrytype{treaty-year} \or%
-				\ifentrytype{treaty-number}}{%
+				\ifentrytype{treaty-number} \or%
+				\ifentrytype{case-icj} \or%
+				\ifentrytype{case-pcij}}{%
 				\usedriver{}{\thefield{entrytype}}}{%
 				\usebibmacro{author/editor:surname}\addcomma\addspace{above n}\addspace\ref{cbx@\csuse{cbx@\thefield{entrykey}}}\ifloccit{}{\addcomma}\printfield{postnote}}}{%
 			\usebibmacro{cite:save}%

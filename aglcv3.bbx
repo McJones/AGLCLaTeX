@@ -897,6 +897,39 @@
 				\printtext{not yet in force}}}}%
 }
 
+% ICJ and PCIJ cases
 
+\DeclareBibliographyAlias{case-icj}{jurisdiction}
+\DeclareBibliographyAlias{case-pcij}{jurisdiction}
+
+\DeclareBibliographyDriver{case-icj}{%
+	\printfield{title}%
+	\addspace%
+	\printfield{type}%
+	\addspace%
+	\printfield{year}%
+	\addspace%
+	\printtext{ICJ Rep}%
+	\addspace%
+	\printfield{pages}%
+}
+
+\DeclareBibliographyDriver{case-pcij}{%
+	\printfield{title}%
+	\addspace%
+	\printfield{type}%
+	\addspace%
+	\printfield{year}%
+	\addspace%
+	\printtext{PCIJ}%
+	\addspace%
+	\printfield{series}%
+	\addspace%
+	\printfield{number}%
+}
+
+\DeclareFieldFormat[case-icj,case-pcij]{type}{\textit{(#1)}}
+\DeclareFieldFormat[case-icj,case-pcij]{year}{[#1]}
+\DeclareFieldFormat[case-pcij]{series}{(ser\addspace#1)}
 
 \endinput
