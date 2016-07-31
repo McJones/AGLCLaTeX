@@ -898,12 +898,12 @@
 				\printtext{not yet in force}}}}%
 }
 
-% ICJ and PCIJ cases
+% Reported ICJ and PCIJ cases
 
-\DeclareBibliographyAlias{case-icj}{jurisdiction}
-\DeclareBibliographyAlias{case-pcij}{jurisdiction}
+\DeclareBibliographyAlias{case-icj-reported}{jurisdiction}
+\DeclareBibliographyAlias{case-pcij-reported}{jurisdiction}
 
-\DeclareBibliographyDriver{case-icj}{%
+\DeclareBibliographyDriver{case-icj-reported}{%
 	\printfield{title}%
 	\addspace%
 	\printfield{type}%
@@ -915,7 +915,7 @@
 	\printfield{pages}%
 }
 
-\DeclareBibliographyDriver{case-pcij}{%
+\DeclareBibliographyDriver{case-pcij-reported}{%
 	\printfield{title}%
 	\addspace%
 	\printfield{type}%
@@ -929,16 +929,16 @@
 	\printfield{number}%
 }
 
-\DeclareFieldFormat[case-icj,case-pcij]{type}{\textit{(#1)}}
-\DeclareFieldFormat[case-icj,case-pcij]{year}{[#1]}
-\DeclareFieldFormat[case-pcij]{series}{(ser\addspace#1)}
+\DeclareFieldFormat[case-icj-reported,case-pcij-reported]{type}{\textit{(#1)}}
+\DeclareFieldFormat[case-icj-reported,case-pcij-reported]{year}{[#1]}
+\DeclareFieldFormat[case-pcij-reported]{series}{(ser\addspace#1)}
 
 % ICJ and PCIJ pleadings, etc
 
-\DeclareBibliographyAlias{icj-pleading}{jurisdiction}
-\DeclareBibliographyAlias{pcij-pleading}{jurisdiction}
+\DeclareBibliographyAlias{icj-pleading-reported}{jurisdiction}
+\DeclareBibliographyAlias{pcij-pleading-reported}{jurisdiction}
 
-\DeclareBibliographyDriver{icj-pleading}{%
+\DeclareBibliographyDriver{icj-pleading-reported}{%
 	\printfield{title}%
 	\newunit%
 	\printfield{maintitle}%
@@ -951,7 +951,7 @@
 	\printfield{pages}%
 }
 
-\DeclareBibliographyDriver{pcij-pleading}{%
+\DeclareBibliographyDriver{pcij-pleading-reported}{%
 	\printfield{title}%
 	\newunit%
 	\printfield{maintitle}%
@@ -966,10 +966,32 @@
 	\printfield{pages}%	
 }
 
-\DeclareFieldFormat[icj-pleading,pcij-pleading]{title}{`#1'}
-\DeclareFieldFormat[icj-pleading,pcij-pleading]{maintitle}{\textit{#1}}
-\DeclareFieldFormat[icj-pleading,pcij-pleading]{year}{[#1]}
-\DeclareFieldFormat[icj-pleading]{volume}{#1\addspace}
-\DeclareFieldFormat[pcij-pleading]{part}{\addspace{pt}\addspace#1}
+\DeclareFieldFormat[icj-pleading-reported,pcij-pleading-reported]{title}{`#1'}
+\DeclareFieldFormat[icj-pleading-reported,pcij-pleading-reported]{maintitle}{\textit{#1}}
+\DeclareFieldFormat[icj-pleading-reported,pcij-pleading-reported]{year}{[#1]}
+\DeclareFieldFormat[icj-pleading-reported]{volume}{#1\addspace}
+\DeclareFieldFormat[pcij-pleading-reported]{part}{\addspace{pt}\addspace#1}
+
+% Unreported ICJ cases
+
+\DeclareBibliographyAlias{case-icj-unreported}{jurisdiction}
+
+\DeclareBibliographyDriver{case-icj-unreported}{%
+	\printfield{title}%
+	\addspace%
+	\printfield{type}%
+	\addspace%
+	\printtext{(International Court of Justice}%
+	\newunit%
+	\printtext{General List}%
+	\addspace%
+	\printfield{number}%
+	\newunit%
+	\printdate%
+	\printtext{)}%
+}
+
+
+\DeclareFieldFormat[case-icj-unreported,case-pcij-unreported]{type}{\textit{(#1)}}
 
 \endinput

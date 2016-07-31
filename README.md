@@ -1279,12 +1279,12 @@ In accordance with the AGLC:
 
 **AGLCLaTeX does not currently support constitutive or basic documents of the ICJ or PCIJ**
 
-#### Decisions
+#### Reported decisions
 
 AGLCLaTeX provides for both International Court of Justice and Permanent Court of International Justice decisions:
 
-- ```@case-icj``` - for International Court of Justice decisions, and
-- ```@case-pcij``` - for Permanent Court of International Justice decisions.
+- ```@case-icj-reported``` - for International Court of Justice decisions, and
+- ```@case-pcij-reported``` - for Permanent Court of International Justice decisions.
 
 The first three fields of each are the same:
 
@@ -1302,79 +1302,90 @@ PCIJ cases have two additional fields:
 - ```Number``` takes the number of the decision.
 
 ```
-@case-icj{easttimor1995,
+@case-icj-reported{easttimor1995,
 Title = {East Timor (Portugal v Australia)},
-Type = {Judgment},
-Year = {1995},
+Type  = {Judgment},
+Year  = {1995},
 Pages = {90}}
 ```
 
 ```
-@case-icj{westernsahara1975,
+@case-icj-reported{westernsahara1975,
 Title = {Western Sahara},
-Type = {Advisory Opinion},
-Year = {1975},
+Type  = {Advisory Opinion},
+Year  = {1975},
 Pages = {12}}
 ```
 
 ```
-@case-pcij{mavrommatis1924,
-Title = {Mavrommatis Palestine Concessions (Greece v United Kingdom)},
-Type = {Jurisdiction},
-Year = {1924},
+@case-pcij-reported{mavrommatis1924,
+Title  = {Mavrommatis Palestine Concessions (Greece v United Kingdom)},
+Type   = {Jurisdiction},
+Year   = {1924},
 Series = {A},
 Number = {2}}
 ```
 
-#### Pleadings and other documents originating in ICJ and PCIJ proceedings
+#### Reported pleadings and other documents originating in ICJ and PCIJ proceedings
 
-AGLCLaTeX provides for pleadings and similar documents in both ICJ and PCIJ proceedings:
+AGLCLaTeX provides for reported pleadings and similar documents in both ICJ and PCIJ proceedings:
 
-- ```@icj-pleading``` - for documents from the International Court of Justice, and
-- ```@pcij-pleading``` - for documents from the Permanent Court of International Justice.
+- ```@icj-pleading-reported``` - for documents from the International Court of Justice, and
+- ```@pcij-pleading-reported``` - for documents from the Permanent Court of International Justice.
 
 Both use the ```Title``` field for the title of the document, and ```Maintitle``` for the title of the proceedings. ```Maintitle``` should be in the same format as the title for cases: ```Maintitle = {Title (Parties)}``` or ```Maintitle = {Title (Advisory Opinion)}```. The ```Year``` field takes the year of the volume (preferred) or the year of the decision (if the year of the volume is unavailable). The ```Pages``` field takes the starting page only of the document.
 
-```@icj-pleading``` can also take the volume number cited, which is in Roman numerals, in the ```Volume``` field.
+```@icj-pleading-reported``` can also take the volume number cited, which is in Roman numerals, in the ```Volume``` field.
 
-```@pcij-pleading``` can take the number and part (if applicable) of the document in the ```Number``` and ```Part``` fields.
+```@pcij-pleading-reported``` can take the number and part (if applicable) of the document in the ```Number``` and ```Part``` fields.
 
 ```
-@icj-pleading{denmark1962,
-Title = {Written Statement of the Government of the Kingdom of Denmark},
+@icj-pleading-reported{denmark1962,
+Title     = {Written Statement of the Government of the Kingdom of Denmark},
 Maintitle = {Certain Expenses of the United Nations (Advisory Opinion)},
-Year = {1962},
-Pages = {137}}
+Year      = {1962},
+Pages     = {137}}
 ```
 
 ```
-@icj-pleading{glennon1986,
-Title = {Questions Put to Professor Glennon by Judge Schwebel},
+@icj-pleading-reported{glennon1986,
+Title     = {Questions Put to Professor Glennon by Judge Schwebel},
 Maintitle = {Military and Paramilitary Activities in and against Nicaragua (Nicaragua v United States of America)},
-Year = {1986},
-Volume = {V},
-Pages = {78}}
+Year      = {1986},
+Volume    = {V},
+Pages     = {78}}
 ```
 
 ```
-@pcij-pleading{hbm1925,
-Title = {Memorial Filed by the Government of His Britannic Majesty},
+@pcij-pleading-reported{hbm1925,
+Title     = {Memorial Filed by the Government of His Britannic Majesty},
 Maintitle = {Treaty of Lausanne, Article 3, Paragraph 2 (Advisory Opinion)},
-Year = {1925},
-Number = {10},
-Pages = {198}}
+Year      = {1925},
+Number    = {10},
+Pages     = {198}}
 ```
 
 ```
-@pcij-pleading{budding1928,
-Title = {Speech by Dr Budding},
+@pcij-pleading-reported{budding1928,
+Title     = {Speech by Dr Budding},
 Maintitle = {Rights of Minorities in Upper Silesia (Germany v Poland)},
-Year = {1928},
-Number = {14},
-Part = {II},
-Pages = {20}}
+Year      = {1928},
+Number    = {14},
+Part      = {II},
+Pages     = {20}}
 ```
 
+#### Unreported decisions
+
+```@case-icj-unreported``` is used for unreported decisions of the International Court of Justice. These are cited essentially the same as reported decisions; the differences are handled by AGLCLaTeX automatically. However, there are some slight differences:
+
+```
+@case-icj-unreported{icj2008-06-04,
+Title  = {Certain Questions of Mutual Assistance in Criminal Matters (Djibouti v France)},
+Type   = {Judgment},
+Number = {136},
+Date   = {2008-06-04}}
+```
 
 **AGLCLaTeX does not currently support other international materials**
 

@@ -20,7 +20,7 @@
     
 \DeclareFieldFormat{prenote}{#1\addspace}
 
-\DeclareFieldFormat[case-au-volume,case-au-year,case-submission,case-icj,case-pcij,icj-pleading,pcij-pleading]{postnote}{%
+\DeclareFieldFormat[case-au-volume,case-au-year,case-submission,case-icj-reported,case-pcij-reported,icj-pleading-reported,pcij-pleading-reported]{postnote}{%
 	\ifciteibid{%
 		\ifloccit{}{%
 			\addspace#1}}{%
@@ -45,12 +45,6 @@
 			\ifentrytype{newspaper}}{%
 				\addcomma\addspace#1}{%
 				\addspace#1}}}%
-			
-\DeclareFieldFormat[case-au-mnc,legal-encyclopedia]{postnote}{%
-	\ifciteibid{%
-		\ifloccit{}{%
-			\addspace\StrSubstitute{[#1]}{, }{],\addspace[}[\x]\StrSubstitute{\x}{--}{]--[}}}{%
-		\addspace\StrSubstitute{[#1]}{, }{],\addspace[}[\x]\StrSubstitute{\x}{--}{]--[}}}%
 		
 \DeclareFieldFormat[arbitration]{postnote}{%
 	\ifciteibid{%
@@ -66,11 +60,9 @@
 			\addspace#1}}{%
 		\iffieldundef{url}{%
 			\iffieldundef{pages}{%
-				\addspace#1}{%
+				\addspace#1}{
 				\addcomma\addspace#1}}{%
-			\iffieldundef{pages}{%
-				\StrSubstitute{[#1]}{, }{],\addspace[}[\x]\StrSubstitute{\x}{--}{]--[}\printfield{url}}{%
-				\addcomma\addspace#1\addspace\printfield{url}}}}}%
+				\addcomma\addspace#1\addspace\printfield{url}}}}%
 			
 \DeclareFieldFormat[book]{postnote}{%
 	\ifciteibid{%
@@ -143,10 +135,11 @@
 				\ifentrytype{treaty-volume} \or%
 				\ifentrytype{treaty-year} \or%
 				\ifentrytype{treaty-number} \or%
-				\ifentrytype{case-icj} \or%
-				\ifentrytype{case-pcij} \or%
-				\ifentrytype{icj-pleading} \or%
-				\ifentrytype{pcij-pleading}}{%
+				\ifentrytype{case-icj-reported} \or%
+				\ifentrytype{case-pcij-reported} \or%
+				\ifentrytype{icj-pleading-reported} \or%
+				\ifentrytype{pcij-pleading-reported} \or%
+				\ifentrytype{case-icj-unreported}}{%
 				\usedriver{}{\thefield{entrytype}}}{%
 				\usebibmacro{author/editor:surname}\addcomma\addspace{above n}\addspace\ref{cbx@\csuse{cbx@\thefield{entrykey}}}\ifloccit{}{\addcomma}\printfield{postnote}}}{%
 			\usebibmacro{cite:save}%
