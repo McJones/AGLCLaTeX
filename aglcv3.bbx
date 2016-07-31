@@ -142,6 +142,7 @@
 % Transcripts of and submissions in court proceedings generally
 
 \DeclareBibliographyAlias{case-transcript}{jurisdiction}
+\DeclareBibliographyAlias{case-submission}{jurisdiction}
 
 \DeclareBibliographyDriver{case-transcript}{%
 	\printtext{Transcript of Proceedings}%
@@ -931,5 +932,44 @@
 \DeclareFieldFormat[case-icj,case-pcij]{type}{\textit{(#1)}}
 \DeclareFieldFormat[case-icj,case-pcij]{year}{[#1]}
 \DeclareFieldFormat[case-pcij]{series}{(ser\addspace#1)}
+
+% ICJ and PCIJ pleadings, etc
+
+\DeclareBibliographyAlias{icj-pleading}{jurisdiction}
+\DeclareBibliographyAlias{pcij-pleading}{jurisdiction}
+
+\DeclareBibliographyDriver{icj-pleading}{%
+	\printfield{title}%
+	\newunit%
+	\printfield{maintitle}%
+	\addspace%
+	\printfield{year}
+	\addspace%
+	\printfield{volume}%
+	\printtext{ICJ Pleadings}%
+	\addspace%
+	\printfield{pages}%
+}
+
+\DeclareBibliographyDriver{pcij-pleading}{%
+	\printfield{title}%
+	\newunit%
+	\printfield{maintitle}%
+	\addspace%
+	\printfield{year}
+	\addspace%
+	\printtext{PCIJ (ser C)}%
+	\addspace%
+	\printfield{number}%
+	\printfield{part}%
+	\newunit
+	\printfield{pages}%	
+}
+
+\DeclareFieldFormat[icj-pleading,pcij-pleading]{title}{`#1'}
+\DeclareFieldFormat[icj-pleading,pcij-pleading]{maintitle}{\textit{#1}}
+\DeclareFieldFormat[icj-pleading,pcij-pleading]{year}{[#1]}
+\DeclareFieldFormat[icj-pleading]{volume}{#1\addspace}
+\DeclareFieldFormat[pcij-pleading]{part}{\addspace{pt}\addspace#1}
 
 \endinput
