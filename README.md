@@ -1387,6 +1387,20 @@ Number = {136},
 Date   = {2008-06-04}}
 ```
 
+#### Unreported pleadings and other documents originating in ICJ proceedings
+
+```@icj-pleading-unreported``` is used for unreported pleadings, etc, originating in ICJ proceedings.
+
+It bears similarities to reported pleadings and unreported decisions: the ```Title``` is used for the title of the document and ```Maintitle``` is used for the title of the proceedings. Otherwise they are cited the same as unreported decisions:
+
+```
+@icj-pleading-unreported{icj2008-03-31,
+Title     = {Application Instituting Proceedings},
+Maintitle = {Aerial Herbicide Spraying (Ecuador v Colombia)},
+Number    = {138},
+Date      = {2008-03-31}}
+```
+
 **AGLCLaTeX does not currently support other international materials**
 
 **AGLCLaTeX does not currently support foreign domestic materials**

@@ -991,7 +991,27 @@
 	\printtext{)}%
 }
 
+\DeclareFieldFormat[case-icj-unreported]{type}{\textit{(#1)}}
 
-\DeclareFieldFormat[case-icj-unreported,case-pcij-unreported]{type}{\textit{(#1)}}
+% Unreported ICJ pleadings
+
+\DeclareBibliographyAlias{icj-pleading-unreported}{jurisdiction}
+
+\DeclareBibliographyDriver{icj-pleading-unreported}{%
+	\printfield{title}%
+	\newunit%
+	\printfield{maintitle}%
+	\newunit%
+	\printtext{International Court of Justice}%
+	\newunit%
+	\printtext{General List}%
+	\addspace%
+	\printfield{number}%
+	\newunit%
+	\printdate%
+}
+
+\DeclareFieldFormat[icj-pleading-unreported]{title}{`#1'}
+\DeclareFieldFormat[icj-pleading-unreported]{maintitle}{\textit{#1}}
 
 \endinput
