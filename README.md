@@ -1547,7 +1547,7 @@ In accordance with the AGLC, constitutive documents should be cited in accordanc
 
 #### Cases
 
-Refer to [international arbitral and tribunal decisions](international-arbitral-and-tribunal-decisions) above.
+Refer to [international arbitral and tribunal decisions](#international-arbitral-and-tribunal-decisions) above.
 
 **AGLCLaTeX does not currently support other international materials**
 
