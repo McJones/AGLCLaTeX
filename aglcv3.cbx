@@ -4,6 +4,8 @@
 
 \newcommand{\para}[1]{\StrSubstitute{[#1]}{, }{],\addspace[}[\x]\StrSubstitute{\x}{--}{]--[}}
 
+% to save the footnote number
+
 \newbibmacro*{cite:save}{%
 	\csxdef{cbx@\thefield{entrykey}}{\the\value{instcount}}%
 	\label{cbx@\the\value{instcount}}%
@@ -13,24 +15,35 @@
 \DeclareNameFormat{surname}{\ifthenelse{\value{listcount}=1}{#1}{}}
 \DeclareNameFormat{firstname}{\ifthenelse{\value{listcount}=1}{#3}{}}
 
+% for surnames
+
 \newbibmacro{author/editor:surname}{%
   \ifthenelse{\ifuseauthor\AND\NOT\ifnameundef{author}}%
     {\ifuseauthor{\printnames[surname]{author}}{}}%
     {\ifthenelse{\ifuseeditor\AND\NOT\ifnameundef{editor}}{\printnames[surname]{editor}}{}}}
-    
-\DeclareFieldFormat{prenote}{#1\addspace}
 
-\DeclareFieldFormat[case-au-volume,case-au-year,case-submission,case-icj-reported,case-pcij-reported,icj-pleading-reported,pcij-pleading-reported,icj-pleading-unreported]{postnote}{%
-	\ifciteibid{%
-		\ifloccit{}{%
-			\addspace#1}}{%
-		\addcomma\addspace#1}}%
+% for reported cases with a venue
+
+\newbibmacro{venue}{%
+	\ifthenelse{
+		\ifentrytype{case-au-volume} \or%
+		\ifentrytype{case-au-year} \or%
+		\ifentrytype{case-intl-volume} \or%
+		\ifentrytype{case-intl-year}}{
+		\iffieldundef{venue}{}{\addspace(\printfield{venue})}}{}}
+
+
+
+\DeclareFieldFormat{prenote}{#1\addspace}
 
 \DeclareFieldFormat{postnote}{%
 	\ifciteibid{%
 		\ifloccit{}{%
 			\addspace#1}}{%
 		\ifthenelse{%
+			\ifentrytype{case-au-volume} \or%
+			\ifentrytype{case-au-year} \or%
+			\ifentrytype{case-submission} \or%
 			\ifentrytype{gazette} \or%
 			\ifentrytype{govt-order} \or%
 			\ifentrytype{practice-direction} \or%
@@ -42,7 +55,14 @@
 			\ifentrytype{parl-comm-evidence} \or%
 			\ifentrytype{debate} \or%
 			\ifentrytype{submission} \or%
-			\ifentrytype{newspaper}}{%
+			\ifentrytype{newspaper} \or%
+			\ifentrytype{case-icj-reported} \or%
+			\ifentrytype{case-pcij-reported} \or%
+			\ifentrytype{icj-pleading-reported} \or%
+			\ifentrytype{pcij-pleading-reported} \or%
+			\ifentrytype{icj-pleading-unreported} \or%
+			\ifentrytype{case-intl-volume} \or%
+			\ifentrytype{case-intl-year}}{%
 				\addcomma\addspace#1}{%
 				\addspace#1}}}%
 		
@@ -139,25 +159,24 @@
 				\ifentrytype{case-pcij-reported} \or%
 				\ifentrytype{icj-pleading-reported} \or%
 				\ifentrytype{pcij-pleading-reported} \or%
-				\ifentrytype{case-icj-unreported} \or%
-				\ifentrytype{icj-pleading-unreported}}{%
-				\usedriver{}{\thefield{entrytype}}\printfield{postnote}}{%
+				\ifentrytype{icj-pleading-unreported} \or%
+				\ifentrytype{case-intl-volume} \or%
+				\ifentrytype{case-intl-year} \or%
+				\ifentrytype{case-intl-unreported}}{%
+				\usedriver{}{\thefield{entrytype}}\printfield{postnote}\usebibmacro{venue}}{%
 				\usebibmacro{author/editor:surname}\addcomma\addspace{above n}\addspace\ref{cbx@\csuse{cbx@\thefield{entrykey}}}\ifloccit{}{\addcomma}\printfield{postnote}}}{%
 			\usebibmacro{cite:save}%
-			\usedriver{}{\thefield{entrytype}}\printfield{postnote}}}}%
+			\usedriver{}{\thefield{entrytype}}\printfield{postnote}\usebibmacro{venue}}}}%
 {}{}%
 					
 
 
 \DeclareCiteCommand{\textcite}{}{%
 	\usedriver{}{\thefield{entrytype}}%
-	\printfield{postnote}%
-	\ifthenelse{%
-		\ifentrytype{case-au-volume} \or
-		\ifentrytype{case-au-year}}{
-			\printfield{venue}{}}}%
-	{}{}%
-	
+	\printfield{postnote}}{}{}%
+
 \DeclareMultiCiteCommand{\cites}[\mkbibfootnote]{\cite}{\multicitedelim}
+	
+
 
 \endinput

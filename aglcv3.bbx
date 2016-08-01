@@ -49,6 +49,18 @@
 		\iffieldundef{edition}{}{%
 			\printfield{edition}\printtext{ed}\addcomma\addspace}}{%
 		\printfield{edition}\printfield{type}\addspace\printtext{ed}\addcomma\addspace}}
+
+% Case report macro
+		
+\newbibmacro{case-report}{%
+	\printfield{year}%
+	\iffieldundef{volume}{}{\addspace}%
+	\printfield{volume}%
+	\addspace%
+	\printfield{series}%
+	\addspace%
+	\printfield{pages}%
+}
 	
 % Universal field formats for title, volume, pages, number and URL.
 
@@ -71,10 +83,7 @@
 \DeclareBibliographyDriver{jurisdiction}{%
 	\printfield{title}%
 	\addspace%
-	\printfield{year}%
-	\printfield{volume}%
-	\printfield{series}%
-	\printfield{pages}%
+	\usebibmacro{case-report}%
 }
 
 \DeclareBibliographyDriver{case-au-mnc}{%
@@ -114,12 +123,9 @@
 
 \DeclareFieldFormat[case-au-volume]{year}{(#1)}
 \DeclareFieldFormat[case-au-year,case-au-mnc,case-transcript-hca]{year}{[#1]}
-\DeclareFieldFormat[case-au-volume,case-au-year]{volume}{\addspace#1}
-\DeclareFieldFormat[case-au-volume,case-au-year]{series}{\addspace#1\addspace}
 \DeclareFieldFormat[case-au-mnc]{venue}{\addspace#1\addspace}
 \DeclareFieldFormat[case-au-mnc,case-transcript-hca]{number}{#1}
 \DeclareFieldFormat[case-au-mnc,case-transcript-hca]{date}{\addspace(#1)}
-\DeclareFieldFormat[case-au-volume,case-au-year]{venue}{\addspace(#1)}
 
 % Domestic arbitrations
 
@@ -1013,5 +1019,45 @@
 
 \DeclareFieldFormat[icj-pleading-unreported]{title}{`#1'}
 \DeclareFieldFormat[icj-pleading-unreported]{maintitle}{\textit{#1}}
+
+\DeclareBibliographyAlias{case-intl-volume}{jurisdiction}
+\DeclareBibliographyAlias{case-intl-year}{jurisdiction}
+\DeclareBibliographyAlias{case-intl-unreported}{jurisdiction}
+\DeclareBibliographyAlias{case-intl-criminal}{jurisdiction}
+
+\DeclareBibliographyDriver{case-intl-volume}{%
+	\printfield{title}%
+	\addspace%
+	\printfield{type}%
+	\addspace%
+	\usebibmacro{case-report}%
+}
+
+\DeclareBibliographyDriver{case-intl-year}{%
+	\printfield{title}%
+	\addspace%
+	\printfield{type}%
+	\addspace%
+	\usebibmacro{case-report}%
+}
+
+\DeclareBibliographyDriver{case-intl-unreported}{%
+	\printfield{title}%
+	\addspace%
+	\printfield{type}%
+	\addspace%
+	\printtext{(}%
+	\printfield{venue}%
+	\newunit%
+	\printfield{number}%
+	\newunit%
+	\printdate%
+	\printtext{)}%
+}
+
+\DeclareFieldFormat[case-intl-volume,case-intl-year,case-intl-unreported]{type}{\textit{(#1)}}
+\DeclareFieldFormat[case-intl-volume]{year}{(#1)}
+\DeclareFieldFormat[case-intl-year]{year}{[#1]}
+\DeclareFieldFormat[case-intl-unreported]{number}{Case No #1}
 
 \endinput

@@ -1401,6 +1401,102 @@ Number    = {138},
 Date      = {2008-03-31}}
 ```
 
+### International arbitral and tribunal decisions
+
+Unlike the AGLC, AGLCLaTeX does not differentiate between state-state and individual-state decisions by international arbitrations and tribunals. They are essentially cited the same way as Australian domestic cases. There are three entry types supported:
+
+- ```@case-intl-volume``` - for reported decisions published in reports organised by volume,
+- ```@case-intl-year``` - for reported decisions published in reports organised by year, and
+- ```@case-intl-unreported``` - for unreported decisions.
+
+Reported decisions support the ```Venue``` field which can be used for the name of the court or tribunal if it's not apparent from the report series (or simply for clarification).
+
+Further, reported and unreported decisions of international criminal tribunals and courts should be cited using these same entry types: the AGLC prefers them to be cited in the same manner as unreported cases unless they are obscure and a reported version would aid retrieval. The ```Venue``` field should include both the court and the chamber if applicable (eg, ```Venue = {Special Court for Sierra Leone, Trial Chamber I}```.
+
+There are no examples provided for ```@case-intl-year```, but ```@case-intl-volume``` and ```@case-intl-year``` take essentially the same fields; ```Volume``` is optional for reports organised by year.
+
+Also note that like ICJ and PCIJ cases, these all use the ```Type``` field for the phase (or stage) of the proceedings, per the examples below.
+
+- Reported state v state decision.
+
+```
+@case-intl-volume{bluefintuna2000,
+Title  = {Southern Bluefin Tuna (Australia v Japan)},
+Type   = {Jurisdiction and Admissibility},
+Year   = {2000},
+Volume = {39},
+Series = {ILM},
+Pages  = {1359}}
+```
+
+- Reported individual/investor v state decision.
+
+```
+@case-intl-volume{olguin2004,
+Title  = {Olgu\'{i}n v Paraguay},
+Type   = {Jurisdiction},
+Year   = {2004},
+Volume = {6},
+Series = {ICSID Rep},
+Pages  = {154}}
+```
+
+- Unreported state v state decision.
+
+```
+@case-intl-unreported{hoshinmaru2007,
+Title  = {Hoshinmaru (Japan v Russia)},
+Type   = {Judgment},
+Venue  = {International Tribunal for the Law of the Sea},
+Number = {14},
+Date   = {2007-08-06}}
+```
+
+- Unreported individual/investor v state decision.
+
+```
+@case-intl-unreported{enron2004,
+Title  = {Enron Corporation v Argentina},
+Type   = {Jurisdiction},
+Venue  = {ICSID Arbitral Tribunal},
+Number = {ARB/01/3},
+Date   = {2004-01-14}}
+```
+
+- General international criminal tribunal or court decision.
+
+```
+@case-intl-unreported{sesay2009,
+Title  = {Prosecutor v Sesay},
+Type   = {Sentencing Judgment},
+Venue  = {Special Court for Sierra Leone, Trial Chamber I},
+Number = {SCSL-04-15-T},
+Date   = {2009-04-08}}
+```
+
+- Reported international criminal tribunal or court decision.
+
+```
+@case-intl-unreported{blaskic1997,
+Title  = {Prosecutor v Bla\v{s}ki\v{c}},
+Type   = {Objection to the Issue of Subpoenae Duces Tecum},
+Year   = {1997},
+Volume = {110},
+Series = {ILR},
+Pages  = {688},
+Venue  = {International Criminal Tribunal for the Former Yugoslavia, Appeals Chamber}}
+```
+
+### International criminal tribunals and courts
+
+#### Basic documents
+
+In accordance with the AGLC, constitutive documents should be cited in accordance with the appropriate rules.
+
+#### Cases
+
+Refer to [international arbitral and tribunal decisions](international-arbitral-and-tribunal-decisions) above.
+
 **AGLCLaTeX does not currently support other international materials**
 
 **AGLCLaTeX does not currently support foreign domestic materials**
