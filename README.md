@@ -21,6 +21,8 @@ The decision to create an entirely new style from scratch was due to the complex
   - [Treaties](#treaties)
   - [UN Materials](#united-nations-materials)
   - [ICJ and PCIJ](#international-court-of-justice-and-permanent-court-of-international-justice)
+  - [International arbitral and tribunal decisions](#international-arbitral-and-tribunal-decisions)
+  - [International criminal tribunals and courts](#international-criminal-tribunals-and-courts)
 
 ## General
 
