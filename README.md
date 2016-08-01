@@ -18,12 +18,16 @@ For general stylistic matters, refer to version 3 of the Australian Guide to Leg
 
 ## General
 
-AGLCLaTeX provides three citation commands:
-- ```\cite``` - creates a footnote for a single citation.
-- ```\cites``` - creates a footnote for multiple citations.
-- ```\textcite``` - prints an in-text citation for a single citation.
+AGLCLaTeX provides three basic citation commands:
+- ```\cite{key2000}``` - creates a footnote for a single citation.
+- ```\cites{key1}{key2}{key3}{etc}``` - creates a footnote for multiple citations.
+- ```\textcite{key2000}``` - prints an in-text citation for a single citation.
+
+### General format of footnotes
 
 Full stops are automatically placed at the end of footnote citations.
+
+```\cites{key1}{key2}{key3}{etc}``` will print each source in a footnote separated by a semicolon (';').
 
 Pinpoint references should be enclosed in the postnote field: ```\cite[354]{key2000}```.
 
@@ -35,9 +39,24 @@ Spans of pinpoint references should be separated by two hyphens and no space:
 - ```\cite[\para{57--63}]{key2000}``` - to use paragraphs with a source that uses page numbers by default.
 - ```\cite[312--13 \para{15--18}]{key2000}``` - to use pages and paragraphs with a source that uses page numbers by default.
 
+### Introductory signals
+
 Introductory signals such as 'See', 'See, eg,' and 'See also' should be enclosed in the prenote field: ```\cite[See][293]{key2000}```. Note that if no pinpoint is included, an empty set of square brackets should be included after the prenote, otherwise the prenote will be taken to be the postnote: ```\cite[See, eg,][]{key2000}```.
 
-**ALGCLaTeX does not currently support sources referring to other sources.**
+### Sources referring to other sources
+
+AGLCLaTeX provides four citation commands for sources referring to other sources:
+
+- ```\quoting{key1}{key2}``` - where the first source quotes the second source,
+- ```\quotedin{key1}{key2}``` - where the first source is quoted in the second source,
+- ```\citing{key1}{key2}``` - where the first source refers to the second source, and
+- ```\citedin{key1}{key2}``` - where the first source is referred to in the second source.
+
+These are used like ```\cites``` and all support prenotes for introductory signals and postnotes for pinpoints.
+
+Note that these should only be used for two sources. Citing more than two sources in this way is currently not supported and will produce incorrect results.
+
+### Subsequent references
 
 In compliance with the AGLC:
 
@@ -145,7 +164,16 @@ Author = {Hampel J},
 Date   = {1989-06-29}}
 ```
 
-**AGLCLaTeX does not currently support case history**
+#### Case history
+
+AGLCLaTeX supports two citation commands for affirmed and reversed decisions:
+
+- ```\affirmed{key1}{key2}``` - where the first source was affirmed (upheld) by the second source, and
+- ```\reversed{key1}{key2}``` - where the first source was reversed by the second source.
+
+These are used like ```\cites``` and both support prenotes for introductory signals and postnotes for pinpoints.
+
+Note that these should only be used for two sources. Citing more than two sources in this way is currently not supported and will produce incorrect results.
 
 #### Quasi-judicial decisions (administrative decisions and arbitrations)
 
@@ -349,6 +377,22 @@ Title    = {Charter of Human Rights and Responsibilities Bill},
 Year     = {2006},
 Location = {Vic}}
 ```
+
+#### Legislative history
+
+AGLCLaTeX provides for seven different types of commands designed for legislative history. These can be used, if appropriate, for other sources:
+
+- ```\asamendedby{key1}{key2}``` - where the first source is as amended by the second source,
+- ```\lateramendedby{key1}{key2}``` - where the first source was later amended by the second source,
+- ```\amending{key1}{key2}``` - where the first source is amending the second source,
+- ```\asrepealedby{key1}{key2}``` - where the first source was repealed by the second source,
+- ```\repealing{key1}{key2}``` - where the first source is repealing the second source,
+- ```\asinsertedby{key1}{key2}``` - where the first source was inserted by the second source, and
+- ```\inserting{key1}{key2}``` - where the first source is inserting the second source.
+
+These are used like ```\cites``` and all support prenotes for introductory signals and postnotes for pinpoints.
+
+Note that these should only be used for two sources. Citing more than two sources in this way is currently not supported and will produce incorrect results.
 
 #### Subsequent References
 
