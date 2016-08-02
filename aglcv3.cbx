@@ -26,8 +26,8 @@
 
 \newbibmacro{venue}{%
 	\ifthenelse{
-		\ifentrytype{case-au-volume} \or%
-		\ifentrytype{case-au-year} \or%
+		\ifentrytype{case-gen-volume} \or%
+		\ifentrytype{case-gen-year} \or%
 		\ifentrytype{case-intl-volume} \or%
 		\ifentrytype{case-intl-year}}{
 		\iffieldundef{venue}{}{\addspace(\printfield{venue})}}{}}
@@ -41,8 +41,8 @@
 		\ifloccit{}{%
 			\addspace#1}}{%
 		\ifthenelse{%
-			\ifentrytype{case-au-volume} \or%
-			\ifentrytype{case-au-year} \or%
+			\ifentrytype{case-gen-volume} \or%
+			\ifentrytype{case-gen-year} \or%
 			\ifentrytype{case-submission} \or%
 			\ifentrytype{gazette} \or%
 			\ifentrytype{govt-order} \or%
@@ -132,21 +132,21 @@
 		Ibid\addspace\printfield{postnote}}{%
 		\ifciteseen{%
 			\ifthenelse{%
-				\ifentrytype{case-au-volume} \or%
-				\ifentrytype{case-au-year} \or%
-				\ifentrytype{case-au-mnc} \or%
-				\ifentrytype{case-au-unreported} \or%
+				\ifentrytype{case-gen-volume} \or%
+				\ifentrytype{case-gen-year} \or%
+				\ifentrytype{case-gen-mnc} \or%
+				\ifentrytype{case-gen-unreported} \or%
 				\ifentrytype{case-transcript} \or%
 				\ifentrytype{case-transcript-hca} \or%
 				\ifentrytype{arbitration} \or%
 				\ifentrytype{case-submission} \or%
-				\ifentrytype{act-au} \or%
+				\ifentrytype{act-gen} \or%
 				\ifentrytype{gazette} \or%
 				\ifentrytype{govt-order} \or%
 				\ifentrytype{non-govt-order} \or%
 				\ifentrytype{practice-direction} \or%
-				\ifentrytype{bill-au} \or%
-				\ifentrytype{bill-au-exp} \or%
+				\ifentrytype{bill-gen} \or%
+				\ifentrytype{bill-gen-exp} \or%
 				\ifentrytype{hansard} \or%
 				\ifentrytype{parl-comm-evidence} \or%
 				\ifentrytype{debate} \or%
@@ -155,6 +155,7 @@
 				\ifentrytype{treaty-volume} \or%
 				\ifentrytype{treaty-year} \or%
 				\ifentrytype{treaty-number} \or%
+				\ifentrytype{rulesofcourt} \or%
 				\ifentrytype{case-icj-reported} \or%
 				\ifentrytype{case-pcij-reported} \or%
 				\ifentrytype{icj-pleading-reported} \or%

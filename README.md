@@ -9,6 +9,8 @@ Almost all of this is original work, built from scratch simply by following the 
 
 The decision to create an entirely new style from scratch was due to the complexity of the AGLC. None of the existing styles was particularly suitable to modify, and while I could have built upon one and _heavily_ modified it, it seemed easier to simply take full control. This allowed me to learn the workings of Biblatex in some considerable detail. Additionally, as far as I could tell, Will was the only other person to attempt this and publish the result, but he was working with version 2 of the AGLC rather than version 3 (and there have been significant changes and expansions), and did not attempt a 'complete' solution.
 
+## Contents
+
 - [General](#general)
 - [Domestic sources](#domestic-sources)
   - [Cases](#cases)
@@ -86,24 +88,25 @@ Dates for sources should be in ```YYYY-MM--DD``` format: ```Date = {2000-01-01}`
 
 AGLCLaTex provides for several different types of cases, as covered by the AGLC:
 
-- ```@case-au-volume``` - Reported cases in a report series arranged by volume.
-- ```@case-au-year``` -Reported cases in a report series arranged by year (which may include volumes within that year).
-- ```@case-au-mnc``` - Unreported cases with a medium neutral citation.
-- ```@case-au-unreported``` - Unreported cases without a medium neutral citation.
-- ```@arbitration``` - Domestic arbitrations.
-- Administrative decisions that are reported or unreported should be cited as cases.
+- ```@case-gen-volume``` - for reported cases in a report series arranged by volume,
+- ```@case-gen-year``` - for reported cases in a report series arranged by year (which may include volumes within that year),
+- ```@case-gen-mnc``` - for unreported cases with a medium neutral citation,
+- ```@case-gen-unreported``` - for unreported cases without a medium neutral citation, and
+- ```@arbitration``` - for domestic arbitrations.
+
+Administrative decisions that are reported or unreported should be cited as cases.
 
 Refer to the AGLC for formatting rules. Note that:
-- Administrative decisions typically use 'and' instead of 'v' to separate party names.
-- Judges' names should conform with the AGLC rules.
-- If necessary, additional information can be included in the postnote.
+- administrative decisions typically use 'and' instead of 'v' to separate party names,
+- judges' names should conform with the AGLC rules, and
+- if necessary, additional information can be included in the postnote.
 
 #### Reported decisions
 
 - _R v Tang_ (2008) 237 CLR 1.
 
 ```
-@case-au-volume{tang2008,
+@case-gen-volume{tang2008,
 Title  = {R v Tang},
 Year   = {2008},
 Volume = {237},
@@ -114,7 +117,7 @@ Pages  = {1}}
 - _Bakker v Stewart_ [1980] VR 70.
 
 ```
-@case-au-year{bakker1980,
+@case-gen-year{bakker1980,
 Title  = {Bakker v Stewart},
 Year   = {1980},
 Series = {VR},
@@ -124,7 +127,7 @@ Pages  = {17}}
 - _Rowe v McCartney_ [1976] 2 NSWLR 72.
 
 ```
-@case-au-year{rowe1976,
+@case-gen-year{rowe1976,
 Title  = {Rowe v McCartney},
 Year   = {1976},
 Volume = {2},
@@ -134,12 +137,12 @@ Pages  = {72}}
 
 The ```Pages``` field can be replaced with a different identifier (such as a paragraph number) if that's how the reports are set out.
 
-Both ```@case-au-volume``` and ```@case-au-year``` allow for the ```venue``` field, which may specify the court if relevant or necessary:
+Both ```@case-gen-volume``` and ```@case-gen-year``` allow for the ```venue``` field, which may specify the court if relevant or necessary:
 
 - _Aldrick v EM Investments (Qld) Pty Ltd_ [2000] 2 Qd R 346 (Court of Appeal).
 
 ```
-@case-au-year{aldrick2000,
+@case-gen-year{aldrick2000,
 Title  = {Aldrick v EM Investments (Qld) Pty Ltd},
 Year   = {2000},
 Volume = {2},
@@ -153,7 +156,7 @@ Venue  = {Court of Appeal}}
 - _Quarmby v Keating_ [2009] TASSC 80 (9 September 2009).
 
 ```
-@case-au-mnc{quarmby2009,
+@case-gen-mnc{quarmby2009,
 Title  = {Quarmby v Keating},
 Date   = {2009-09-09},
 Venue  = {TASSC},
@@ -165,7 +168,7 @@ Number = {80}}
 - _Barton v Chibber_ (Unreported, Supreme Court of Victoria, Hampel J, 29 June 1989).
 
 ```
-@case-au-unreported{barton1989,
+@case-gen-unreported{barton1989,
 Title  = {Barton v Chibber},
 Venue  = {Supreme Court of Victoria},
 Author = {Hampel J},
@@ -185,7 +188,7 @@ Note that these should only be used for two sources. Citing more than two source
 
 #### Quasi-judicial decisions (administrative decisions and arbitrations)
 
-Administrative decisions should cited as cases (ie, using ```@case-au-volume```, ```@case-au-year```, ```@case-au-mnc``` or ```@case-au-unreported```).
+Administrative decisions should cited as cases (ie, using ```@case-gen-volume```, ```@case-gen-year```, ```@case-gen-mnc``` or ```@case-gen-unreported```).
 
 Arbitrations use the ```@arbitration``` entry type. Arbitrations may or may not have a title; if an arbitration does not the title can be safely omitted.
 
@@ -267,22 +270,22 @@ In accordance with the AGLC:
 
 #### Statutes (Acts of Parliament), Australian Constitutions, and Delegated Legislation
 
-AGLCLaTeX uses the ```@act-au``` entry type for statutes, constitutions and delegated legislation:
+AGLCLaTeX uses the ```@act-gen``` entry type for statutes, constitutions and delegated legislation:
 
 ```
-@act-au{crimesact1958vic,
+@act-gen{crimesact1958vic,
 Title    = {Crimes Act},
 Year     = {1958},
 Location = {Vic}}
 ```
 
 ```
-@act-au{ausconstitution,
+@act-gen{ausconstitution,
 Title = {Australian Constitution}}
 ```
 
 ```
-@act-au{policeregs2003vic,
+@act-gen{policeregs2003vic,
 Title    = {Police Regulations},
 Year     = {2003},
 Location = {Vic}}
@@ -365,10 +368,10 @@ Date        = {2006-09-05}}
 
 #### Bills
 
-AGLCLaTeX uses the ```@bill-au``` entry type for bills, which are otherwise cited like regular legislation:
+AGLCLaTeX uses the ```@bill-gen``` entry type for bills, which are otherwise cited like regular legislation:
 
 ```
-@bill-au{corpamendbill2005cth,
+@bill-gen{corpamendbill2005cth,
 Title    = {Corporations Amendment Bill No 1},
 Year     = {2005},
 Location = {Cth}}
@@ -376,10 +379,10 @@ Location = {Cth}}
 
 #### Explanatory Memoranda, Statements and Notes
 
-AGLCLaTeX uses the ```@bill-au-exp``` entry type for explanatory memorada, statements and note, which are otherwise cited like regular legislation, but with the type of document specified:
+AGLCLaTeX uses the ```@bill-gen-exp``` entry type for explanatory memorada, statements and note, which are otherwise cited like regular legislation, but with the type of document specified:
 
 ```
-@bill-au-exp{exphrcharter2006vic,
+@bill-gen-exp{exphrcharter2006vic,
 Type     = {Explanatory Memorandum},
 Title    = {Charter of Human Rights and Responsibilities Bill},
 Year     = {2006},
@@ -1323,13 +1326,48 @@ In accordance with the AGLC:
 
 ### United Nations materials
 
-**AGLCLaTeX does not currently support United Nations materials**
+#### Constitutive document
+
+The _Charter of the United Nations_ should be cited using the ```@act-gen``` entry type:
+
+```
+@act-gen{uncharter,
+Title = {Charter of the United Nations}}
+```
+
+```\cite[art 51]{uncharter}``` will produce '_Charter of the United Nations_ art 51.'
+
+**AGLCLaTeX does not currently support other United Nations materials**
 
 ### International Court of Justice and Permanent Court of International Justice
 
 #### Constitutive and basic documents
 
-**AGLCLaTeX does not currently support constitutive or basic documents of the ICJ or PCIJ**
+The _Statute of the International Court of Justice_ and _Statute of the Permanent Court of International Justice_ should be cited using the ```@act-gen``` entry type:
+
+```
+@act-gen{icjstatute,
+Title = {Statute of the International Court of Justice}}
+```
+
+```
+@act-gen{pcijstatute,
+Title = {Statute of the Permanent Court of International Justice}}
+```
+
+Rules of court for both the ICJ and PCIJ are cited using the ```@rulesofcourt``` entry type:
+
+```
+@rulesofcourt{icj1978,
+Institution = {International Court of Justice},
+Date        = {1978-04-14}}
+```
+
+```
+@rulesofcourt{pcij1922,
+Institution = {Permanent Court of International Justice},
+Date        = {1922-03-24}}
+```
 
 #### Reported decisions
 

@@ -74,10 +74,10 @@
 
 % Australian cases and administrative decisions
 
-\DeclareBibliographyAlias{case-au-volume}{jurisdiction}
-\DeclareBibliographyAlias{case-au-year}{jurisdiction}
-\DeclareBibliographyAlias{case-au-mnc}{jurisdiction}
-\DeclareBibliographyAlias{case-au-unreported}{jurisdiction}
+\DeclareBibliographyAlias{case-gen-volume}{jurisdiction}
+\DeclareBibliographyAlias{case-gen-year}{jurisdiction}
+\DeclareBibliographyAlias{case-gen-mnc}{jurisdiction}
+\DeclareBibliographyAlias{case-gen-unreported}{jurisdiction}
 \DeclareBibliographyAlias{case-transcript-hca}{jurisdiction}
 
 \DeclareBibliographyDriver{jurisdiction}{%
@@ -86,7 +86,7 @@
 	\usebibmacro{case-report}%
 }
 
-\DeclareBibliographyDriver{case-au-mnc}{%
+\DeclareBibliographyDriver{case-gen-mnc}{%
 	\printfield{title}%
 	\addspace%
 	\printfield{year}%
@@ -95,7 +95,7 @@
 	\printdate%
 }
 
-\DeclareBibliographyDriver{case-au-unreported}{%
+\DeclareBibliographyDriver{case-gen-unreported}{%
 	\printfield{title}%
 	\addspace%
 	\printtext{(Unreported}%
@@ -121,11 +121,11 @@
 	\printdate%
 }
 
-\DeclareFieldFormat[case-au-volume]{year}{(#1)}
-\DeclareFieldFormat[case-au-year,case-au-mnc,case-transcript-hca]{year}{[#1]}
-\DeclareFieldFormat[case-au-mnc]{venue}{\addspace#1\addspace}
-\DeclareFieldFormat[case-au-mnc,case-transcript-hca]{number}{#1}
-\DeclareFieldFormat[case-au-mnc,case-transcript-hca]{date}{\addspace(#1)}
+\DeclareFieldFormat[case-gen-volume]{year}{(#1)}
+\DeclareFieldFormat[case-gen-year,case-gen-mnc,case-transcript-hca]{year}{[#1]}
+\DeclareFieldFormat[case-gen-mnc]{venue}{\addspace#1\addspace}
+\DeclareFieldFormat[case-gen-mnc,case-transcript-hca]{number}{#1}
+\DeclareFieldFormat[case-gen-mnc,case-transcript-hca]{date}{\addspace(#1)}
 
 % Domestic arbitrations
 
@@ -185,9 +185,9 @@
 
 % Australian legislation
 
-\DeclareBibliographyAlias{act-au}{legislation}
-\DeclareBibliographyAlias{bill-au}{legislation}
-\DeclareBibliographyAlias{bill-au-exp}{legislation}
+\DeclareBibliographyAlias{act-gen}{legislation}
+\DeclareBibliographyAlias{bill-gen}{legislation}
+\DeclareBibliographyAlias{bill-gen-exp}{legislation}
 
 \DeclareBibliographyDriver{legislation}{%
 	\printfield{type}%
@@ -196,11 +196,11 @@
 	\printlist{location}%
 }
 
-\DeclareFieldFormat[act-au]{year}{\addspace\textit{#1}\addspace}
-\DeclareFieldFormat[bill-au,bill-au-exp]{title}{#1}
-\DeclareFieldFormat[bill-au,bill-au-exp]{year}{\addspace#1\addspace}
-\DeclareListFormat[act-au,bill-au,bill-au-exp]{location}{(#1)}
-\DeclareFieldFormat[bill-au-exp]{type}{#1\addcomma\addspace}
+\DeclareFieldFormat[act-gen]{year}{\addspace\textit{#1}\addspace}
+\DeclareFieldFormat[bill-gen,bill-gen-exp]{title}{#1}
+\DeclareFieldFormat[bill-gen,bill-gen-exp]{year}{\addspace#1\addspace}
+\DeclareListFormat[act-gen,bill-gen,bill-gen-exp]{location}{(#1)}
+\DeclareFieldFormat[bill-gen-exp]{type}{#1\addcomma\addspace}
 
 % Gazettes
 
@@ -902,6 +902,19 @@
 			\iffieldsequal{year}{origyear}{%
 				\printtext{signed and entered into force}\addspace\printdate}{%
 				\printtext{not yet in force}}}}%
+}
+
+% Rules of court for the ICJ and PCIJ
+
+\DeclareBibliographyAlias{rulesofcourt}{legislation}
+
+\DeclareBibliographyDriver{rulesofcourt}{%
+	\printlist{institution}%
+	\newunit%
+	\printtext{\textit{Rules of Court}\addspace(adopted}%
+	\addspace%
+	\printdate%
+	\printtext{)}%
 }
 
 % Reported ICJ and PCIJ cases
