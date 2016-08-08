@@ -30,7 +30,8 @@
 		\ifentrytype{case-gen-year} \or%
 		\ifentrytype{case-intl-volume} \or%
 		\ifentrytype{case-intl-year}}{
-		\iffieldundef{venue}{}{\addspace(\printfield{venue})}}{}}
+		\iffieldundef{venue}{}{\addspace(\printfield{venue})}}{%
+			\ifentrytype{case-us-reported}{\addspace(\printfield{venue}\addcomma\addspace\printfield{year}){}}}}
 
 
 
@@ -62,7 +63,8 @@
 			\ifentrytype{pcij-pleading-reported} \or%
 			\ifentrytype{icj-pleading-unreported} \or%
 			\ifentrytype{case-intl-volume} \or%
-			\ifentrytype{case-intl-year}}{%
+			\ifentrytype{case-intl-year} \or%
+			\ifentrytype{case-us-reported}}{%
 				\addcomma\addspace#1}{%
 				\addspace#1}}}%
 		
@@ -163,25 +165,27 @@
 				\ifentrytype{icj-pleading-unreported} \or%
 				\ifentrytype{case-intl-volume} \or%
 				\ifentrytype{case-intl-year} \or%
-				\ifentrytype{case-intl-unreported}}{%
+				\ifentrytype{case-intl-unreported} \or% 
+				\ifentrytype{case-us-reported} \%
+				\ifentrytype{case-us-unreported}}{%
 				\usedriver{}{\thefield{entrytype}}\printfield{postnote}\usebibmacro{venue}}{%
-				\usebibmacro{author/editor:surname}\addcomma\addspace{above n}\addspace\ref{cbx@\csuse{cbx@\thefield{entrykey}}}\ifloccit{}{\addcomma}\printfield{postnote}}}{%
+				\usebibmacro{author/editor:surname}\addcomma\addspace{above n}\addspace\ref{cbx@\csuse{cbx@\thefield{entrykey}}}\iffieldundef{postnote}{}{\ifloccit{}{\addcomma}\printfield{postnote}}}}{%
 			\usebibmacro{cite:save}%
 			\usedriver{}{\thefield{entrytype}}\printfield{postnote}\usebibmacro{venue}}}}%
 {}{}%
 					
 
 
-\DeclareCiteCommand{\textcite}{}{%
+\DeclareCiteCommand{\textcite}{\citetrackerfalse}{%
 	\usedriver{}{\thefield{entrytype}}%
 	\printfield{postnote}}{}{}%
 
 \DeclareMultiCiteCommand{\cites}[\mkbibfootnote]{\cite}{\multicitedelim}
 
-\DeclareMultiCiteCommand{\quoting}[\mkbibfootnote]{\cite}{, quoting}
-\DeclareMultiCiteCommand{\quotedin}[\mkbibfootnote]{\cite}{, quoted in}
-\DeclareMultiCiteCommand{\citing}[\mkbibfootnote]{\cite}{, citing}
-\DeclareMultiCiteCommand{\citedin}[\mkbibfootnote]{\cite}{, cited in}
+\DeclareMultiCiteCommand{\quoting}[\mkbibfootnote]{\cite}{, quoting }
+\DeclareMultiCiteCommand{\quotedin}[\mkbibfootnote]{\cite}{, quoted in }
+\DeclareMultiCiteCommand{\citing}[\mkbibfootnote]{\cite}{, citing }
+\DeclareMultiCiteCommand{\citedin}[\mkbibfootnote]{\cite}{, cited in }
 
 \DeclareMultiCiteCommand{\affirmed}[\mkbibfootnote]{\cite}{, affd}
 \DeclareMultiCiteCommand{\reversed}[\mkbibfootnote]{\cite}{, revd}

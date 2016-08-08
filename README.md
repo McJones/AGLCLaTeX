@@ -1581,7 +1581,7 @@ Venue  = {International Criminal Tribunal for the Former Yugoslavia, Appeals Cha
 
 #### Basic documents
 
-In accordance with the AGLC, constitutive documents should be cited in accordance with the appropriate rules.
+In accordance with the AGLC, constitutive documents should be cited in accordance with the appropriate rules (eg, treaty or UN resolution).
 
 #### Cases
 
@@ -1589,4 +1589,152 @@ Refer to [international arbitral and tribunal decisions](#international-arbitral
 
 **AGLCLaTeX does not currently support other international materials**
 
-**AGLCLaTeX does not currently support foreign domestic materials**
+## Foreign domestic materials
+
+### Canada
+
+#### Cases
+
+Canadian cases, administrative decisions and arbitrations should be cited the same as the respective Australian materials (see examples above), using:
+
+- ```@case-gen-volume``` - for reported cases in a report series arranged by volume,
+- ```@case-gen-year``` - for reported cases in a report series arranged by year (which may include volumes within that year),
+- ```@case-gen-mnc``` - for unreported cases with a medium neutral citation,
+- ```@case-gen-unreported``` - for unreported cases without a medium neutral citation, and
+- ```@arbitration``` - for domestic arbitrations.
+
+**AGLCLaTeX does not currently support other Canadian materials**
+
+### China
+
+**AGLCLaTeX does not currently support Chinese materials**
+
+### France
+
+**AGLCLaTeX does not currently support French materials**
+
+### Germany
+
+**AGLCLaTeX does not currently support German materials**
+
+### Hong Kong
+
+#### Cases
+
+Hong Kong cases, administrative decisions and arbitrations should be cited the same as the respective Australian materials (see above).
+
+**AGLCLaTeX does not currently support other Hong Kong materials**
+
+### Malaysia
+
+#### Cases
+
+Malaysian cases, administrative decisions and arbitrations should be cited the same as the respective Australian materials (see above), except ```@case-gen-mnc``` should _not_ be used for any decisions (use ```case-gen-unreported``` for unreported decisions instead).
+
+**AGLCLaTeX does not currently support other Malaysian materials**
+
+### New Zealand
+
+#### Cases
+
+New Zealand cases, administrative decisions and arbitrations should be cited the same as the respective Australian materials (see above), except for Maori Land Court, Maori Appellate Court and Waitangi Tribunal decisions (currently unsupported).
+
+**AGLCLaTeX does not currently support other New Zealand materials**
+
+### Singapore
+
+#### Cases
+
+New Zealand cases, administrative decisions and arbitrations should be cited the same as the respective Australian materials (see above).
+
+**AGLCLaTeX does not currently support other Singaporean materials**
+
+### South Africa
+
+#### Cases
+
+South African cases, administrative decisions and arbitrations should be cited the same as the respective Australian materials (see above).
+
+**AGLCLaTeX does not currently support other Singaporean materials**
+
+### United Kingdom
+
+#### Cases
+
+United Kingdom cases, administrative decisions and arbitrations should be cited the same as the respective Australian materials (see above), except for Scottish cases reported in a report series organised by year (currently unsupported).
+
+In accordance with the AGLC: when citing a nominate report (published under the name of the reporter between 1537 and 1865) this should be accompanied with a citation of the _English Reports_ ('ER') or _Revised Reports_ ('RR'). This can be done using the ```\cites``` command and chaining two citations back-to-back, albeit with some complexity. This is currently untested, but should work. They can also therefore take separate pinpoints (but postnotes to follow the whole should go in the postnote of the second entrykey.
+
+Example: ```\cites{russel1661a}{russel1661b}``` should print: _Russel v Lee_ (1661) 1 Lev 86; 83 ER 310 in accordance with the following entries.
+
+```
+@case-gen-volume{russel1661a,
+Title  = {Russel v Lee},
+Year   = {1661},
+Volume = {1},
+Series = {Lev},
+Pages  = {86}}
+
+@case-gen-volume{russel1661b,
+Volume = {83},
+Series = {ER},
+Pages  = {310}}
+```
+
+Likewise, ```\cites[345]{janvrin1861a}[336 (Lord Kingsdown)]{janvrin1861b}``` should print: _Janvrin v De La Mare_ (1861) 14 Moo 334, 345; 15 ER 332, 336 (Lord Kingsdown). Entries for this example have been omitted.
+
+**AGLCLaTeX does not currently support other United Kingdom materials**
+
+### United States of America
+
+#### Cases
+
+AGLCLaTeX provides for both reported and unreported US cases:
+
+- ```@case-us-reported```, and
+- ```@case-us-unreported```.
+
+There are relatively complex rules with regard to jurisdiction and court name, which can be found in the AGLC 24.1.5. The basic rules are:
+
+- Do not include the name of the court if citing a decision of the US Supreme Court.
+- Courts of Appeals should be referred to by number ('1st Cir', '2nd Cir'), except the DC Circuit ('DC Cir') and Federal Circuit ('Fed Cir').
+	- When citing numbered circuits, use the ```\nth``` command to enclose the number to make it an ordinal: ```Venue = {\nth{1} Cir}```.
+- Federal District Court decisions should have an abbreviated form of the district (but not division) and the state abbreviation, such as:
+	- 'D Del' --- (District of Delaware).
+	- 'CD Cal' --- (Central District of California).
+	- 'ED Mo' --- (Middle District of New Hampshire).
+- State Courts should have an abbreviated form of the jurisdiction (ie, state) followed by the conventional abbreviated name of the court, unless the jurisdiction is apparent from the title of the report series (omit the jurisdiction) or it is the highest court in the state (omit the court name):
+	- _Brogdon v State_, 467 SE 2d 598 (**Ga Ct App**, 1996).
+	- _Poire v CL Peck/Jones Brothers Construction Corporation Inc_, 46 Cal Rptr 2d 631 (**Ct App**, 1995).
+	- _Burr v Maclay Rancho Water Co_, 98 P 260 (**Cal**, 1908).
+
+```
+@case-us-reported{bush2004,
+Title  = {Bush v Schiavo},
+Volume = {885},
+Series = {So 2d},
+Pages  = {336},
+Venue  = {Fla},
+Year   = {2004}}
+```
+
+Note that for citations of US Supreme Court decisions prior to 1875 (prior to volume 90 US), a parallel citation should be included of the early American report series in parentheses in the ```Series``` field. 
+
+```
+@case-us-reported{winchester1804,
+Title  = {Winchester v Hackley},
+Volume = {6},
+Series = {US (2 Cranch)},
+Pages  = {342},
+Year   = {1804}}
+```
+
+Unreported cases must specify the type of docket or reference number (eg, 'Civ No' or 'No') in accordance with the decision:
+
+```
+@case-us-unreported{redhat2004,
+Title  = {Red Hat Inc v The SCO Group Inc},
+Venue  = {D Del},
+Number = {Civ No 03-772-SLR},
+Date   = {2004-04-06}}
+```

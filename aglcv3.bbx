@@ -1073,4 +1073,33 @@
 \DeclareFieldFormat[case-intl-year]{year}{[#1]}
 \DeclareFieldFormat[case-intl-unreported]{number}{Case No #1}
 
+% US Cases
+
+\DeclareBibliographyAlias{case-us-reported}{jurisdiction}
+\DeclareBibliographyAlias{case-us-unreported}{jurisdiction}
+
+\DeclareBibliographyDriver{case-us-reported}{%
+	\printfield{title}%
+	\newunit%
+	\printfield{volume}%
+	\addspace%
+	\printfield{series}%
+	\addspace%
+	\printfield{pages}%
+}
+
+\DeclareBibliographyDriver{case-us-unreported}{%
+	\printfield{title}%
+	\addspace%
+	\printtext{(}%
+	\printfield{venue}%
+	\newunit%
+	\printfield{number}%
+	\newunit%
+	\printdate%
+	\printtext{)}%
+}
+
+\DeclareFieldFormat[case-us-unreported]{number}{#1}
+
 \endinput
