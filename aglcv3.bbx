@@ -1,12 +1,15 @@
 \ProvidesFile{aglc.bbx}
 
+\usepackage[T1]{fontenc}
 \usepackage[australian]{babel}
+\usepackage{xeCJK}
 \usepackage{url}
 	\urlstyle{same}
 \usepackage[style=british]{csquotes}
 \usepackage[super]{nth}
 \usepackage{etoolbox}
 \usepackage{xstring}
+\usepackage{gensymb}
 
 \renewcommand{\newunitpunct}{,\addspace}
 
@@ -191,15 +194,24 @@
 
 \DeclareBibliographyDriver{legislation}{%
 	\printfield{type}%
+	\printfield{origtitle}%
+	\printfield{origyear}%
+	\iffieldundef{origtitle}{}{\printtext{\addspace[}}%
 	\printfield{title}%
 	\printfield{year}%
+	\iffieldundef{origtitle}{}{\printtext{]\addspace}}%
 	\printlist{location}%
 }
 
-\DeclareFieldFormat[act-gen]{year}{\addspace\textit{#1}\addspace}
+\DeclareFieldFormat[act-gen]{origtitle}{\textit{#1}}
+\DeclareFieldFormat[act-gen]{origyear}{\addspace\textit{#1}}
+\DeclareFieldFormat[act-gen]{title}{\iffieldundef{origtitle}{\textit{#1}}{#1}}
+\DeclareFieldFormat[act-gen]{year}{\iffieldundef{origtitle}{\addspace\textit{#1}\addspace}{\addspace#1}}
+\DeclareFieldFormat[bill-gen,bill-gen-exp]{origtitle}{#1}
+\DeclareFieldFormat[bill-gen,bill-gen-exp]{origyear}{\addspace#1\addspace}
 \DeclareFieldFormat[bill-gen,bill-gen-exp]{title}{#1}
-\DeclareFieldFormat[bill-gen,bill-gen-exp]{year}{\addspace#1\addspace}
-\DeclareListFormat[act-gen,bill-gen,bill-gen-exp]{location}{(#1)}
+\DeclareFieldFormat[bill-gen,bill-gen-exp]{year}{\addspace#1}
+\DeclareListFormat[act-gen,bill-gen,bill-gen-exp]{location}{\addspace(#1)}
 \DeclareFieldFormat[bill-gen-exp]{type}{#1\addcomma\addspace}
 
 % Gazettes
@@ -253,9 +265,11 @@
 
 % Court practice directions and notes
 
-\DeclareBibliographyAlias{practice-direction}{misc}
+\DeclareBibliographyAlias{pracnote}{misc}
+\DeclareBibliographyAlias{pracnote-volume}{misc}
+\DeclareBibliographyAlias{pracnote-year}{misc}
 
-\DeclareBibliographyDriver{practice-direction}{%
+\DeclareBibliographyDriver{pracnote}{%
 	\printlist{institution}%
 	\newunit%
 	\printfield{type}%
@@ -268,8 +282,36 @@
 	\printdate%
 }
 
-\DeclareFieldFormat[practice-direction]{type}{\textit{#1}}
-\DeclareFieldFormat[practice-direction]{number}{\textit{#1\addspace{of}\addspace\printfield{year}\addspace}}
+\DeclareBibliographyDriver{pracnote-volume}{%
+	\printlist{institution}%
+	\newunit%
+	\printfield{type}%
+	\addspace%
+	\printfield{number}%
+	\printtext{\textit{---}}%
+	\addspace
+	\printfield{title}%
+	\addspace%
+	\usebibmacro{case-report}%
+}
+
+\DeclareBibliographyDriver{pracnote-year}{%
+	\printlist{institution}%
+	\newunit%
+	\printfield{type}%
+	\addspace%
+	\printfield{number}%
+	\printtext{\textit{---}}%
+	\addspace
+	\printfield{title}%
+	\addspace%
+	\usebibmacro{case-report}%
+}
+
+\DeclareFieldFormat[pracnote,pracnote-volume,pracnote-year]{type}{\textit{#1}}
+\DeclareFieldFormat[pracnote,pracnote-volume,pracnote-year]{number}{\textit{#1}\addspace}
+\DeclareFieldFormat[pracnote-volume]{year}{(#1)}
+\DeclareFieldFormat[pracnote-year]{year}{[#1]}
 
 % Journal articles
 
@@ -1072,6 +1114,377 @@
 \DeclareFieldFormat[case-intl-volume]{year}{(#1)}
 \DeclareFieldFormat[case-intl-year]{year}{[#1]}
 \DeclareFieldFormat[case-intl-unreported]{number}{Case No #1}
+
+% Canadian legislation
+
+\DeclareBibliographyAlias{act-ca}{legislation}
+
+\DeclareBibliographyDriver{act-ca}{%
+	\printfield{title}%
+	\newunit%
+	\printfield{volume}%
+	\printlist{location}%
+	\addspace%
+	\printfield{year}%
+	\printfield{number}%
+	\printfield{type}%
+	\newunit%
+	\printfield{chapter}%
+}
+
+\DeclareFieldFormat[act-ca]{number}{\addspace(\nth{#1}}
+\DeclareFieldFormat[act-ca]{type}{\addspace#1)}
+\DeclareFieldFormat[act-ca]{chapter}{c\addspace#1}
+
+% Chinese cases
+
+\DeclareBibliographyAlias{case-cn-reported}{jurisdiction}
+\DeclareBibliographyAlias{case-cn-unreported}{jurisdiction}
+
+\DeclareBibliographyDriver{case-cn-reported}{%
+	\printfield{origtitle}%
+	\addspace%
+	\printfield{title}%
+	\addspace%
+	\printfield{year}%
+	\addspace%
+	\printfield{number}%
+	\addspace%
+	\printfield{series}%
+	\addspace%
+	\printfield{pages}%
+}
+
+\DeclareBibliographyDriver{case-cn-unreported}{%
+	\printfield{origtitle}%
+	\addspace%
+	\printfield{title}%
+	\newunit%
+	\printfield{venue}%
+	\newunit%
+	\printfield{number}%
+	\newunit%
+	\printdate%
+}
+
+\DeclareFieldFormat[case-cn-reported,case-cn-unreported]{origtitle}{\guillemotleft#1\guillemotright}
+\DeclareFieldFormat[case-cn-reported,case-cn-unreported]{title}{[#1]}
+\DeclareFieldFormat[case-cn-reported]{year}{[#1]}
+\DeclareFieldFormat[case-cn-reported,case-cn-unreported]{number}{#1}
+
+% Chinese legislation
+
+\DeclareBibliographyAlias{act-cn}{legislation}
+
+\DeclareBibliographyDriver{act-cn}{%
+	\printfield{origtitle}%
+	\addspace%
+	\printfield{title}%
+	\addspace%
+	\printlist{location}%
+	\addspace%
+	\printlist{institution}%
+	\printfield{type}%
+	\printfield{number}%
+	\printdate%
+}
+
+\DeclareFieldFormat[act-cn]{origtitle}{\guillemotleft#1\guillemotright}
+\DeclareFieldFormat[act-cn]{title}{[#1]}
+\DeclareListFormat[act-cn]{location}{(#1)}
+\DeclareFieldFormat[act-cn]{type}{\addcomma\addspace#1\addspace}
+\DeclareListFormat[act-cn]{institution}{#1\addcomma\addspace}
+\DeclareFieldFormat[act-cn]{number}{No\addspace#1\addcomma\addspace}
+
+% French cases
+
+\DeclareBibliographyAlias{case-fr-cass}{jurisdiction}
+\DeclareBibliographyAlias{case-fr-con}{jurisdiction}
+\DeclareBibliographyAlias{case-fr-detat}{jurisdiction}
+\DeclareBibliographyAlias{case-fr-gen}{jurisdiction}
+
+\DeclareBibliographyDriver{case-fr-cass}{%
+	\printfield{title}%
+	\printtext{Cour de cassation [French Court of Cassation]}%
+	\newunit%
+	\printfield{number}%
+	\newunit%
+	\printorigdate%
+	\addspace%
+	\printtext{reported in}%
+	\addspace%
+	\printfield{year}%
+	\addspace%
+	\printtext{Bull}
+	\printfield{series}%
+	\addspace%
+	\printtext{n\degree}%
+	\addspace%
+	\printfield{volume}%
+	\printfield{issue}%
+}
+
+\DeclareBibliographyDriver{case-fr-con}{%
+	\printfield{title}%
+	\printtext{Conseil constitutionnel [French Constitutional Court]}%
+	\newunit%
+	\printtext{decision n\degree}%
+	\addspace%
+	\printfield{number}%
+	\newunit%
+	\printorigdate%
+	\addspace%
+	\printtext{reported in JO}%
+	\newunit%
+	\printdate%
+}
+
+\DeclareBibliographyDriver{case-fr-detat}{%
+	\printfield{title}%
+	\printtext{Conseil D'\'{E}tat [French Administrative Court]}%
+	\newunit%
+	\printorigdate%
+	\addspace%
+	\printtext{reported in}%
+	\addspace%
+	\printfield{year}%
+	\addspace%
+	\printtext{Rec Lebon}%
+}
+
+\DeclareBibliographyDriver{case-fr-gen}{%
+	\printfield{title}%
+	\printfield{venue}%
+	\newunit%
+	\printfield{number}%
+	\newunit%
+	\printdate%
+}
+
+\DeclareFieldFormat[case-fr-cass,case-fr-con,case-fr-detat,case-fr-gen]{title}{\textit{#1}\addcomma\addspace}
+\DeclareFieldFormat[case-fr-cass,case-fr-con,case-fr-gen]{number}{#1}
+\DeclareFieldFormat[case-fr-cass]{year}{(#1)}
+\DeclareFieldFormat[case-fr-detat]{year}{[#1]}
+\DeclareFieldFormat[case-fr-cass]{volume}{#1}
+\DeclareFieldFormat[case-fr-cass]{issue}{#1}
+
+% French legislation
+
+\DeclareBibliographyAlias{act-fr-individual}{legislation}
+
+\DeclareBibliographyDriver{act-fr-individual}{%
+	\printfield{origtitle}%
+	\addspace%
+	\printfield{title}%
+	\addspace%
+	\printlist{location}%
+	\addspace%
+	\printtext{JO}%
+	\newunit%
+	\printdate%
+}
+
+\DeclareFieldFormat[act-fr-individual]{origtitle}{\textit{#1}}
+\DeclareFieldFormat[act-fr-individual]{title}{[#1]}
+\DeclareListFormat[act-fr-individual]{location}{(#1)}
+
+% German cases
+
+\DeclareBibliographyAlias{case-de}{jurisdiction}
+
+\DeclareBibliographyDriver{case-de}{%
+	\printfield{title}%
+	\printfield{venue}%
+	\newunit%
+	\printfield{number}%
+	\newunit%
+	\printdate%
+	\iffieldundef{series}{}{%
+		\addspace%
+		\printtext{reported in}%
+		\addspace%
+		\printfield{year}%
+		\addspace%
+		\printfield{volume}%
+		\addspace%
+		\printfield{series}%
+		\addspace%
+		\printfield{pages}%
+	}
+}
+
+\DeclareFieldFormat[case-de]{title}{\textit{#1}\addcomma\addspace}
+\DeclareFieldFormat[case-de]{year}{(#1)}
+
+% German legislation
+
+\DeclareBibliographyAlias{act-de-individual}{legislation}
+
+\DeclareBibliographyDriver{act-de-individual}{%
+	\printfield{origtitle}%
+	\addspace%
+	\printfield{title}%
+	\addspace%
+	\printtext{(Germany)}%
+	\addspace%
+	\printdate%
+	\newunit%
+	\printfield{series}%
+	\newunit%
+	\printfield{year}%
+	\newunit%
+	\printfield{pages}%
+}
+
+\DeclareFieldFormat[act-de-individual]{origtitle}{\textit{#1}}
+\DeclareFieldFormat[act-de-individual]{title}{[#1]}
+\DeclareFieldFormat[act-de-individual]{year}{#1}
+
+% Hong Kong legislation
+
+\DeclareBibliographyAlias{act-hk-chapter}{legislation}
+
+\DeclareBibliographyDriver{act-hk-chapter}{%
+	\printfield{title}%
+	\addspace%
+	\printlist{location}%
+	\addspace%
+	\printtext{cap}%
+	\addspace%
+	\printfield{chapter}%
+}
+
+\DeclareListFormat[act-hk-chapter]{location}{(#1)}
+\DeclareFieldFormat[act-hk-chapter]{chapter}{#1}
+
+% NZ Maori Land and Appellate Court decisions
+
+\DeclareBibliographyAlias{case-nz-maori}{jurisdiction}
+
+\DeclareBibliographyDriver{case-nz-maori}{%
+	\printfield{title}%
+	\addspace%
+	\printfield{year}%
+	\addspace%
+	\printfield{number}%
+	\addspace%
+	\printlist{location}%
+	\addspace%
+	\printfield{series}%
+	\addspace%
+	\printfield{pages}%
+}
+
+\DeclareFieldFormat[case-nz-maori]{year}{(#1)}
+\DeclareFieldFormat[case-nz-maori]{number}{#1}
+
+% NZ Waitangi Tribunal reports
+
+\DeclareBibliographyAlias{case-nz-waitangi}{report}
+
+\DeclareBibliographyDriver{case-nz-waitangi}{%
+	\printtext{Waitangi Tribunal}%
+	\newunit%
+	\printfield{title}%
+	\addspace%
+	\printfield{year}%
+}
+
+\DeclareFieldFormat[case-nz-waitangi]{year}{(#1)}
+
+% Delegated NZ legislation
+
+\DeclareBibliographyAlias{act-nz-rule}{legislation}
+
+\DeclareBibliographyDriver{act-nz-rule}{%
+	\printfield{title}%
+	\addspace%
+	\printfield{year}%
+	\addspace%
+	\printlist{location}%
+	\addspace%
+	\printtext{SR}%
+	\addspace%
+	\printfield{number}%
+}
+
+\DeclareFieldFormat[act-nz-rule]{year}{\textit{#1}}
+\DeclareListFormat[act-nz-rule]{location}{(#1)}
+\DeclareFieldFormat[act-nz-rule]{number}{#1}
+
+% Singapore legislation
+
+\DeclareBibliographyAlias{act-sg-chapter}{legislation}
+
+\DeclareBibliographyDriver{act-sg-chapter}{%
+	\printfield{title}%
+	\addspace%
+	\printtext{(}%
+	\printlist{location}%
+	\newunit%
+	\printfield{chapter}%
+	\newunit%
+	\printfield{year}%
+	\addspace%
+	\printfield{type}%
+	\printtext{)}%
+}
+
+\DeclareFieldFormat[act-sg-chapter]{chapter}{cap\addspace#1}
+\DeclareFieldFormat[act-sg-chapter]{type}{#1}
+
+% Scottish cases arranged by year
+
+\DeclareBibliographyAlias{case-scot-year}{jurisdiction}
+
+\DeclareBibliographyDriver{case-scot-year}{%
+	\printfield{title}%
+	\addspace%
+	\usebibmacro{case-report}%
+}
+
+\DeclareFieldFormat[case-scot-year]{year}{#1}
+
+% UK legislation
+
+\DeclareBibliographyAlias{act-uk-new}{legislation}
+\DeclareBibliographyAlias{act-uk-old}{legislation}
+\DeclareBibliographyAlias{act-uk-rule}{legislation}
+
+\DeclareBibliographyDriver{act-uk-new}{%
+	\printfield{title}%
+	\printfield{year}%
+	\printlist{location}%
+	\addspace%
+	\printfield{chapter}%
+	\printfield{number}%
+}
+
+\DeclareBibliographyDriver{act-uk-old}{%
+	\printfield{title}%
+	\printfield{year}%
+	\iflistundef{location}{%
+		\addcomma\addspace}{%
+		\printlist{location}\addspace}%
+	\printfield{note}%
+	\newunit%
+	\printfield{chapter}%
+}
+
+\DeclareBibliographyDriver{act-uk-rule}{%
+	\printfield{title}%
+	\printfield{year}%
+	\printlist{location}%
+	\addspace%
+	\printfield{type}%
+	\addspace%
+	\printfield{number}%
+}
+
+\DeclareFieldFormat[act-uk-new,act-uk-old,act-uk-rule]{year}{\addspace\textit{#1}}
+\DeclareListFormat[act-uk-new,act-uk-old,act-uk-rule]{location}{\addspace(#1)}
+\DeclareFieldFormat[act-uk-new,act-uk-old]{chapter}{c\addspace#1}
+\DeclareFieldFormat[act-uk-new,act-uk-rule]{number}{#1}
 
 % US Cases
 

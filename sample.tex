@@ -1,0 +1,65 @@
+% !TEX TS-program = xelatex
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage[backend=biber,style=aglcv3]{biblatex}
+	\bibliography{bibliography}
+
+\usepackage{titlesec}
+  \renewcommand{\thesection}{\Roman{section}}
+  \renewcommand{\thesubsection}{\Alph{subsection}}
+  \renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+  \renewcommand{\theparagraph}{(\alph{paragraph})}
+  \renewcommand{\thesubparagraph}{(\roman{subparagraph})}
+  \titleformat{\section}{\centering\sc}{\thesection}{0.5em}{}
+  \titleformat{\subsection}{\centering\it}{\normalfont\thesubsection}{0.5em}{}
+  \titleformat{\subsubsection}{\it}{\normalfont\thesubsubsection}{0.5em}{}
+  \titleformat{\paragraph}{\it}{\theparagraph}{0.5em}{}
+  \titleformat{\subparagraph}{\it}{\thesubparagraph}{0.5em}{}
+  \titlespacing{\section}{0pt}{12pt}{12pt}
+  \titlespacing{\subsection}{0pt}{12pt}{12pt}
+  \titlespacing{\subsubsection}{0pt}{12pt}{12pt}
+  \titlespacing{\paragraph}{0pt}{12pt}{12pt}
+  \titlespacing{\subparagraph}{0pt}{12pt}{12pt}
+		
+\setcounter{secnumdepth}{5}
+
+\makeatletter
+    \def\@maketitle{%
+  \begin{center}%
+  \let \footnote \thanks
+    {\textbf{\MakeUppercase\@title}}%
+    \vskip 1em%
+    {\textsc\@author}
+  \end{center}}
+\makeatother
+
+\begin{document}
+
+\title{Test Document}
+\author{Test\footnote{Author details.}}
+\maketitle
+
+\section{Heading Level One}
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.
+
+\subsection{Heading Level Two}
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.
+
+\subsubsection{Heading Level Three}
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.
+
+\paragraph{Heading Level Four}
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.
+
+\subparagraph{Heading Level Five}
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.
+
+\end{document}

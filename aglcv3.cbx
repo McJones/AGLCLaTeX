@@ -29,7 +29,9 @@
 		\ifentrytype{case-gen-volume} \or%
 		\ifentrytype{case-gen-year} \or%
 		\ifentrytype{case-intl-volume} \or%
-		\ifentrytype{case-intl-year}}{
+		\ifentrytype{case-intl-year} \or%
+		\ifentrytype{case-cn-reported} \or%
+		\ifentrytype{case-scot-year}}{
 		\iffieldundef{venue}{}{\addspace(\printfield{venue})}}{%
 			\ifentrytype{case-us-reported}{\addspace(\printfield{venue}\addcomma\addspace\printfield{year}){}}}}
 
@@ -47,7 +49,9 @@
 			\ifentrytype{case-submission} \or%
 			\ifentrytype{gazette} \or%
 			\ifentrytype{govt-order} \or%
-			\ifentrytype{practice-direction} \or%
+			\ifentrytype{pracnote} \or%
+			\ifentrytype{pracnote-volume} \or%
+			\ifentrytype{pracnote-year} \or%
 			\ifentrytype{article-volume} \or%
 			\ifentrytype{article-year} \or%
 			\ifentrytype{chapter} \or%
@@ -64,9 +68,33 @@
 			\ifentrytype{icj-pleading-unreported} \or%
 			\ifentrytype{case-intl-volume} \or%
 			\ifentrytype{case-intl-year} \or%
+			\ifentrytype{act-ca} \or%
+			\ifentrytype{case-cn-reported} \or%
+			\ifentrytype{case-cn-unreported} \or%
+			\ifentrytype{case-fr-cass} \or%
+			\ifentrytype{case-fr-con} \or%
+			\ifentrytype{case-fr-gen} \or%
+			\ifentrytype{act-fr-individual} \or%
+			\ifentrytype{case-de} \or%
+			\ifentrytype{act-de-individual} \or%
+			\ifentrytype{act-hk-chapter} \or%
+			\ifentrytype{case-nz-maori} \or%
+			\ifentrytype{act-nz-rule} \or%
+			\ifentrytype{case-scot-year} \or%
+			\ifentrytype{act-uk-new} \or%
+			\ifentrytype{act-uk-old} \or%
+			\ifentrytype{act-uk-rule} \or%
 			\ifentrytype{case-us-reported}}{%
 				\addcomma\addspace#1}{%
 				\addspace#1}}}%
+				
+\DeclareFieldFormat[act-cn]{postnote}{%
+	\ifciteibid{%
+		\ifloccit{}{%
+			\addspace#1}}{%
+		\iffieldundef{year}{%
+			\addspace#1}{
+			\addcomma\addspace#1}}}%
 		
 \DeclareFieldFormat[arbitration]{postnote}{%
 	\ifciteibid{%
@@ -146,7 +174,9 @@
 				\ifentrytype{gazette} \or%
 				\ifentrytype{govt-order} \or%
 				\ifentrytype{non-govt-order} \or%
-				\ifentrytype{practice-direction} \or%
+				\ifentrytype{pracnote} \or%
+				\ifentrytype{pracnote-volume} \or%
+				\ifentrytype{pracnote-year} \or%
 				\ifentrytype{bill-gen} \or%
 				\ifentrytype{bill-gen-exp} \or%
 				\ifentrytype{hansard} \or%
@@ -166,7 +196,27 @@
 				\ifentrytype{case-intl-volume} \or%
 				\ifentrytype{case-intl-year} \or%
 				\ifentrytype{case-intl-unreported} \or% 
-				\ifentrytype{case-us-reported} \%
+				\ifentrytype{act-ca} \or%
+				\ifentrytype{case-cn-reported} \or%
+				\ifentrytype{case-cn-unreported} \or%
+				\ifentrytype{act-cn} \or%
+				\ifentrytype{case-fr-cass} \or%
+				\ifentrytype{case-fr-con} \or%
+				\ifentrytype{case-fr-detat} \or%
+				\ifentrytype{case-fr-gen} \or%
+				\ifentrytype{act-fr-individual} \or%
+				\ifentrytype{case-de} \or%
+				\ifentrytype{act-de-individual} \or%
+				\ifentrytype{act-hk-chapter} \or%
+				\ifentrytype{case-nz-maori} \or%
+				\ifentrytype{case-nz-waitangi} \or%
+				\ifentrytype{act-nz-rule} \or%
+				\ifentrytype{act-sg-chapter} \or%
+				\ifentrytype{case-scot-year} \or%
+				\ifentrytype{act-uk-new} \or%
+				\ifentrytype{act-uk-old} \or%
+				\ifentrytype{act-uk-rule} \or%
+				\ifentrytype{case-us-reported} \or %
 				\ifentrytype{case-us-unreported}}{%
 				\usedriver{}{\thefield{entrytype}}\printfield{postnote}\usebibmacro{venue}}{%
 				\usebibmacro{author/editor:surname}\addcomma\addspace{above n}\addspace\ref{cbx@\csuse{cbx@\thefield{entrykey}}}\iffieldundef{postnote}{}{\ifloccit{}{\addcomma}\printfield{postnote}}}}{%
@@ -190,12 +240,14 @@
 \DeclareMultiCiteCommand{\affirmed}[\mkbibfootnote]{\cite}{, affd}
 \DeclareMultiCiteCommand{\reversed}[\mkbibfootnote]{\cite}{, revd}
 
-\DeclareMultiCiteCommand{\asamendedby}[\mkbibfootnote]{\cite}{, as amended by\addspace}
-\DeclareMultiCiteCommand{\lateramendedby}[\mkbibfootnote]{\cite}{, later amended by\addspace}
-\DeclareMultiCiteCommand{\amending}[\mkbibfootnote]{\cite}{, amending\addspace}
-\DeclareMultiCiteCommand{\asrepealedby}[\mkbibfootnote]{\cite}{, as repealed by\addspace}
-\DeclareMultiCiteCommand{\repealing}[\mkbibfootnote]{\cite}{, repealing\addspace}
-\DeclareMultiCiteCommand{\asinsertedby}[\mkbibfootnote]{\cite}{, as inserted by\addspace}
-\DeclareMultiCiteCommand{\inserting}[\mkbibfootnote]{\cite}{, inserting\addspace}
+\DeclareMultiCiteCommand{\reportedin}[mkbibfootnote]{\cite}{ reported in }
+
+\DeclareMultiCiteCommand{\asamendedby}[\mkbibfootnote]{\cite}{, as amended by }
+\DeclareMultiCiteCommand{\lateramendedby}[\mkbibfootnote]{\cite}{, later amended by }
+\DeclareMultiCiteCommand{\amending}[\mkbibfootnote]{\cite}{, amending }
+\DeclareMultiCiteCommand{\asrepealedby}[\mkbibfootnote]{\cite}{, as repealed by }
+\DeclareMultiCiteCommand{\repealing}[\mkbibfootnote]{\cite}{, repealing }
+\DeclareMultiCiteCommand{\asinsertedby}[\mkbibfootnote]{\cite}{, as inserted by }
+\DeclareMultiCiteCommand{\inserting}[\mkbibfootnote]{\cite}{, inserting }
 
 \endinput
