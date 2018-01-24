@@ -1,4 +1,7 @@
 # AGLCLaTeX
+
+Forked from original code by McJones: https://github.com/McJones/
+
 A Biblatex style implementing version 3 of the Australian Guide to Legal Citation
 
 The Australian Guide to Legal Citation ('AGLC') is in my opinion one of the best and most flexible citation systems ever devised. This is despite its many detailed rules; in fact, it is probably the detail that contributes most to its flexibility, as it is very easy to find a close match for any source type.
