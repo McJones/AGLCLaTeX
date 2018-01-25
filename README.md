@@ -4,13 +4,16 @@ Forked from original code by McJones: https://github.com/McJones/
 
 A Biblatex style implementing version 3 of the Australian Guide to Legal Citation
 
-The Australian Guide to Legal Citation ('AGLC') is in my opinion one of the best and most flexible citation systems ever devised. This is despite its many detailed rules; in fact, it is probably the detail that contributes most to its flexibility, as it is very easy to find a close match for any source type.
+The Australian Guide to Legal Citation ('AGLC') is in my opinion one of the best and most flexible citation systems ever devised. This is despite its many detailed rules; in fact, it is probably the detail that contributes most to its flexibility, as it is very easy to find a close match for any source type.*
 
 It is the citation system I learned when I was in law school, and it is currently the most widely used system for legal citations in Australia. The AGLC is published by the Melbourne University Law Review Association, and is available from the [University of Melbourne website](http://law.unimelb.edu.au/mulr/aglc/about) as a read-only PDF and to purchase in hard or soft copy.
 
 Almost all of this is original work, built from scratch simply by following the Biblatex documentation. Small parts have been taken from various forum posts where I ran into difficulty. The parts for storing previous footnote numbers (the cite:save bibmacro) and some code for printing only surnames for the above n citations were taken from [Will Hardy's](https://github.com/willhardy/aglc) attempt at implementing the AGLC, so thanks to him.
 
 The decision to create an entirely new style from scratch was due to the complexity of the AGLC. None of the existing styles was particularly suitable to modify, and while I could have built upon one and _heavily_ modified it, it seemed easier to simply take full control. This allowed me to learn the workings of Biblatex in some considerable detail. Additionally, as far as I could tell, Will was the only other person to attempt this and publish the result, but he was working with version 2 of the AGLC rather than version 3 (and there have been significant changes and expansions), and did not attempt a 'complete' solution.
+
+*Note, this is the opinion of the code's original author, McJones. The current maintainers of the code differ wildly on the relative merits of the AGLC3. Regardless, standards are standards...
+
 
 ## Contents
 
