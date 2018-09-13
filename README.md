@@ -86,7 +86,9 @@ If the postnote is identical, only 'Ibid' is printed. If there are multiple sour
 
 Dates for sources should be in ```YYYY-MM--DD``` format: ```Date = {2000-01-01}```. Individual authors and editors should be separated with 'and' (do not use commas, even for more than two authors): ```Author = {John Smith and Jane Doe}```. Corporate authors should be enclosed in double curly braces to prevent unintended splitting: ```Author: {{Department of Foreign Affairs and Trade}}```.
 
-**AGLCLaTeX does not currently support the headings, titles or bibliography format of the AGLC**
+**AGLCLaTeX does not currently support the bibliography format of the AGLC**
+
+For other formatting (headings, etc.) see the sample template AGLC3.tex
 
 ## Domestic sources
 
@@ -114,7 +116,7 @@ Refer to the AGLC for formatting rules. Note that:
 ```
 @case-gen-volume{tang2008,
 Title  = {R v Tang},
-Year   = {2008},
+Date   = {2008},
 Volume = {237},
 Series = {CLR},
 Pages  = {1}}
@@ -125,7 +127,7 @@ Pages  = {1}}
 ```
 @case-gen-year{bakker1980,
 Title  = {Bakker v Stewart},
-Year   = {1980},
+Date   = {1980},
 Series = {VR},
 Pages  = {17}}
 ```
@@ -135,7 +137,7 @@ Pages  = {17}}
 ```
 @case-gen-year{rowe1976,
 Title  = {Rowe v McCartney},
-Year   = {1976},
+Date   = {1976},
 Volume = {2},
 Series = {NSWLR},
 Pages  = {72}}
@@ -150,7 +152,7 @@ Both ```@case-gen-volume``` and ```@case-gen-year``` allow for the ```venue``` f
 ```
 @case-gen-year{aldrick2000,
 Title  = {Aldrick v EM Investments (Qld) Pty Ltd},
-Year   = {2000},
+Date   = {2000},
 Volume = {2},
 Series = {Qd R},
 Pages  = {346},
