@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AGLC3
+% LaTeX Template
+% Version 1.0 (13/9/18)
+%
+% Modified from original by Tomas (tomas.fitzgerald2@gmail.com)
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com) with extensive modifications by
+% Vel (vel@LaTeXTemplates.com)
+%
+% Includes aglcv3.bbx and aglcv3.cbx from https://github.com/TomasFitz/AGLCLaTeX
+% Original author of AGLCLaTex https://github.com/McJones 
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+% Packages and other document configuration
+% No need to change these settings
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper,twoside,12pt]{article}
+
+\usepackage[australian]{babel}
+\usepackage{times} % to use Times font
+\usepackage{setspace}
+	\doublespacing	% Sets line spacing
+	\expandafter\def\expandafter\quote\expandafter{\quote\vspace{-1.75em}\singlespacing\small} % Sets single spacing and removes line break after paragraph for quotes
+
+\usepackage{parskip} % Changes default paragraph settings to no indent
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+
+\usepackage{titlesec} % Allows customization of titles
+	\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+	\renewcommand\thesubsection{\Alph{subsection}} % Capital Letters for subsections
+	\renewcommand\thesubsubsection{\arabic{subsubsection}} % Arabic numerals for subsubsections
+	\renewcommand\theparagraph{\alph{paragraph}} % lower case letters for paragraphs
+	\renewcommand\thesubparagraph{\roman{subparagraph}} % roman numerals for subparagraphs
+	\titleformat{\section}[block]{\large\scshape\centering}{\thesection}{1em}{} % Treat \section as AGLC3 'Heading Level One'
+	\titleformat{\subsection}[block]{\large\itshape\centering}{\rm\thesubsection}{1em}{} % Treat \subsection as AGLC3 'Heading Level Two'
+	\titleformat{\subsubsection}[block]{\itshape}{\rm\thesubsubsection}{1em}{} % Treat \subsubsection as AGLC3 'Heading Level Three'
+	\titleformat{\paragraph}[block]{\itshape}{(\theparagraph)}{1em}{} % Treat \paragraph as AGLC3 'Heading Level Four'
+	\titleformat{\subparagraph}[block]{\itshape}{(\thesubparagraph)}{1em}{} % Treat \subparagraph as AGLC3 'Heading Level Five'
+
+\usepackage{fancyhdr} % Headers and footers
+	\pagestyle{fancy} % All pages have headers and footers
+	\fancyhead{} % Blank out the default header
+	\fancyfoot{} % Blank out the default footer
+	\fancyfoot[OR, EL]{\thepage} % Custom footer text
+\setcounter{secnumdepth}{5} % Allows auto-numbering of sections through to sub-paragraphs
+
+%-----------------------------------
+% CITATION AND BIBLIOGRAPHY INFORMATION
+% Make sure this points to your .bib file
+%-----------------------------------
+\usepackage[style=AGLC3,backend=biber]{biblatex}
+	\bibliography{Library}
+
+
+%----------------------------------------------------------------------------------------
+%	HEADERS, TITLE, AUTHOR, AND ABSTRACT
+%	START CHANGES HERE
+%----------------------------------------------------------------------------------------
+
+%Title and Author
+
+\title{\uppercase{\large{\textbf{The Title of the Article}}}} % Article title (in 
+%caps!)    
+\date{} % Leave this blank
+
+\author{%
+\textsc{Author's Name}
+\thanks{The Author's Institution} 
+\\[1ex] 
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Begin writing the article here.
+
+\subsection{Insert Sub-headings like this}
+
+\end{document}
