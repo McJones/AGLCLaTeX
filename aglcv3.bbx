@@ -406,9 +406,11 @@
 	\iffieldundef{postnote}{%
 		\addspace%
 		\printtext{[}%
-		\ifthenelse{\iffieldequals{title}{origtitle}}{}{\printtext{trans of:}\addspace\printfield{origtitle}\addspace\printtext{(}}%
-		\printtext{first published}\addspace\printfield{origyear}%
-		\printtext{)]}}{}%
+		\iffieldundef{origtitle}{\printtext{first published}\addspace\printfield{origyear}%
+			\printtext{]}}{%
+ 			\printtext{trans of:}\addspace\printfield{origtitle}\addspace\printtext{(}%
+			\printtext{first published}\addspace\printfield{origyear}%
+			\printtext{)]}}}{}%
 }
 
 \DeclareFieldFormat[book,chapter]{origyear}{first\addspace{published}\addspace#1}
