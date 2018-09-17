@@ -405,10 +405,8 @@
 	\printfield{volume}%
 	\iffieldundef{postnote}{%
 		\addspace%
-		\printtext{[trans of:}%
-		\addspace%
-		\printfield{origtitle}%
-		\addspace\printtext{(}%
+		\printtext{[}%
+		\ifthenelse{\iffieldequals{title}{origtitle}}{}{\printtext{trans of:}\addspace\printfield{origtitle}\addspace\printtext{(}}%
 		\printtext{first published}\addspace\printfield{origyear}%
 		\printtext{)]}}{}%
 }
