@@ -1,3 +1,4 @@
+
 \ProvidesFile{aglc.bbx}
 
 \usepackage[T1]{fontenc}
@@ -315,8 +316,6 @@
 
 % Journal articles
 
-\DeclareBibliographyAlias{article-volume}{article}
-\DeclareBibliographyAlias{article-year}{article}
 
 \DeclareBibliographyDriver{article}{%
 	\printfield{type}%
@@ -325,7 +324,9 @@
 	\printfield{title}%
 	\addspace%
 	\printfield{part}%
-	\printfield{year}%
+    \iffieldundef{volume}{%
+        \printtext{[\printfield{year}]}}{%
+        \printtext{(\printfield{year})}}%
 	\addspace%
 	\printfield{volume}%
 	\printfield{issue}%
@@ -337,13 +338,11 @@
 		\printfield{url}}{}%
 }
 
-\DeclareFieldFormat[article-volume,article-year]{title}{`#1'}
-\DeclareFieldFormat[article-volume,article-year]{part}{(Pt\addspace#1)\addspace}
-\DeclareFieldFormat[article-volume]{year}{(#1)\addspace}
-\DeclareFieldFormat[article-year]{year}{[#1]\addspace}
-\DeclareFieldFormat[article-volume,article-year]{issue}{(#1)}
-\DeclareFieldFormat[article-volume,article-year]{journaltitle}{\addspace\textit{#1}\addspace}
-\DeclareFieldFormat[article-volume,article-year]{note}{(#1)}
+\DeclareFieldFormat[article]{title}{`#1'}
+\DeclareFieldFormat[article]{part}{(Pt\addspace#1)\addspace}
+\DeclareFieldFormat[article]{issue}{(#1)}
+\DeclareFieldFormat[article]{journaltitle}{\addspace\textit{#1}\addspace}
+\DeclareFieldFormat[article]{note}{(#1)}
 
 % Books
 
