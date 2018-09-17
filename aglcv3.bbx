@@ -316,6 +316,10 @@
 
 % Journal articles
 
+%includes support for older @article-year/-volume tags, which are no longer necessary
+
+\DeclareBibliographyAlias{article-volume}{article}
+\DeclareBibliographyAlias{article-year}{article}
 
 \DeclareBibliographyDriver{article}{%
 	\printfield{type}%
@@ -338,11 +342,11 @@
 		\printfield{url}}{}%
 }
 
-\DeclareFieldFormat[article]{title}{`#1'}
-\DeclareFieldFormat[article]{part}{(Pt\addspace#1)\addspace}
-\DeclareFieldFormat[article]{issue}{(#1)}
-\DeclareFieldFormat[article]{journaltitle}{\addspace\textit{#1}\addspace}
-\DeclareFieldFormat[article]{note}{(#1)}
+\DeclareFieldFormat[article,article-volume,article-year]{title}{`#1'}
+\DeclareFieldFormat[article,article-volume,article-year]{part}{(Pt\addspace#1)\addspace}
+\DeclareFieldFormat[article,article-volume,article-year]{issue}{(#1)}
+\DeclareFieldFormat[article,article-volume,article-year]{journaltitle}{\addspace\textit{#1}\addspace}
+\DeclareFieldFormat[article,article-volume,article-year]{note}{(#1)}
 
 % Books
 
