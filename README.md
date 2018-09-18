@@ -12,7 +12,7 @@ Almost all of this is original work, built from scratch simply by following the 
 
 The decision to create an entirely new style from scratch was due to the complexity of the AGLC. None of the existing styles was particularly suitable to modify, and while I could have built upon one and _heavily_ modified it, it seemed easier to simply take full control. This allowed me to learn the workings of Biblatex in some considerable detail. Additionally, as far as I could tell, Will was the only other person to attempt this and publish the result, but he was working with version 2 of the AGLC rather than version 3 (and there have been significant changes and expansions), and did not attempt a 'complete' solution.
 
-*Note, this is the opinion of the code's original author, McJones. The current maintainers of the code differ wildly on the relative merits of the AGLC3. Regardless, standards are standards...
+*Note, this is the opinion of the code's original author, McJones. The current maintainers of the code differ wildly on the relative merits of the AGLC3. Regardless, the only thing worse than an imperfect standard is multiple imperfect standards...
 
 
 ## Contents
