@@ -317,7 +317,7 @@ Gazette notice with author and title:
 Author    = {Minister for Lands (WA)},
 Title     = {\textit{Land Acquisition and Public Works Act 1902 --- Native Title Act 1993} (Commonwealth) --- Notice of Intention to Take Land for a Public Work},
 Location  = {Western Australia},
-Maintitle = {Western Australian Government Gazette}
+Maintitle = {Western Australian Government Gazette},
 Number    = {27},
 Date      = {1997-02-18},
 Pages     = {1142}}
