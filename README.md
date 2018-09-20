@@ -438,7 +438,7 @@ is no longer necessary, but is still supported.
 For an article published in a journal arranged by volume include a volume field:
 
 ```
-@article-volume{kenyon1998,
+@article{kenyon1998,
 Author  = {Andrew Kenyon},
 Title   = {Problems with Defamation Damages?},
 Year    = {1998},
@@ -450,7 +450,7 @@ Pages   = {70}}
 For an article published in a journal arranged by year, *do not* include a volume field:
 
 ```
-@article-year{dockray1985,
+@article{dockray1985,
 Author  = {Martin Dockray},
 Title   = {Why Do We Need Adverse Possession?},
 Year    = {1985},
