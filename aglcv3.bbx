@@ -1,3 +1,4 @@
+% v1.1
 \ProvidesFile{aglc.bbx}
 
 \usepackage[T1]{fontenc}
@@ -315,6 +316,8 @@
 
 % Journal articles
 
+%includes support for older @article-year/-volume tags, which are no longer necessary
+
 \DeclareBibliographyAlias{article-volume}{article}
 \DeclareBibliographyAlias{article-year}{article}
 
@@ -325,10 +328,13 @@
 	\printfield{title}%
 	\addspace%
 	\printfield{part}%
-	\printfield{year}%
+    \iffieldundef{volume}{%
+        \printtext{[\printfield{year}]}}{%
+        \printtext{(\printfield{year})}}%
 	\addspace%
 	\printfield{volume}%
 	\printfield{issue}%
+	\addspace%
 	\printfield{journaltitle}%
 	\printfield{pages}%
 	\printfield{note}%
@@ -336,13 +342,11 @@
 		\printfield{url}}{}%
 }
 
-\DeclareFieldFormat[article-volume,article-year]{title}{`#1'}
-\DeclareFieldFormat[article-volume,article-year]{part}{(Pt\addspace#1)\addspace}
-\DeclareFieldFormat[article-volume]{year}{(#1)\addspace}
-\DeclareFieldFormat[article-year]{year}{[#1]\addspace}
-\DeclareFieldFormat[article-volume,article-year]{issue}{(#1)}
-\DeclareFieldFormat[article-volume,article-year]{journaltitle}{\addspace\textit{#1}\addspace}
-\DeclareFieldFormat[article-volume,article-year]{note}{(#1)}
+\DeclareFieldFormat[article,article-volume,article-year]{title}{`#1'}
+\DeclareFieldFormat[article,article-volume,article-year]{part}{(Pt\addspace#1)\addspace}
+\DeclareFieldFormat[article,article-volume,article-year]{issue}{(#1)}
+\DeclareFieldFormat[article,article-volume,article-year]{journaltitle}{\addspace\textit{#1}\addspace}
+\DeclareFieldFormat[article,article-volume,article-year]{note}{(#1)}
 
 % Books
 
@@ -375,11 +379,12 @@
 	\addspace%
 	\printtext{(}%
 	\printlist{publisher}%
+	\newunit%
 	\printfield{origyear}%
+	\newunit%
 	\usebibmacro{edition}%
 	\printfield{year}%
-	\printtext{)}%
-	\printfield{volume}%
+	\printtext{)}%	\printfield{volume}%
 	\printfield{pages}%
 }
 
@@ -403,12 +408,12 @@
 	\printfield{volume}%
 	\iffieldundef{postnote}{%
 		\addspace%
-		\printtext{[trans of:}%
-		\addspace%
-		\printfield{origtitle}%
-		\addspace\printtext{(}%
-		\printtext{first published}\addspace\printfield{origyear}%
-		\printtext{)]}}{}%
+		\printtext{[}%
+		\iffieldundef{origtitle}{\printtext{first published}\addspace\printfield{origyear}%
+			\printtext{]}}{%
+ 			\printtext{trans of:}\addspace\printfield{origtitle}\addspace\printtext{(}%
+			\printtext{first published}\addspace\printfield{origyear}%
+			\printtext{)]}}}{}%
 }
 
 \DeclareFieldFormat[book,chapter]{origyear}{first\addspace{published}\addspace#1}

@@ -11,16 +11,18 @@
 	\label{cbx@\the\value{instcount}}%
 }
 
-\DeclareListFormat{last}{\ifthenelse{\value{listcount}=1}{#1}{}}
-\DeclareNameFormat{surname}{\ifthenelse{\value{listcount}=1}{#1}{}}
-\DeclareNameFormat{firstname}{\ifthenelse{\value{listcount}=1}{#3}{}}
+%\DeclareListFormat{last}{\ifthenelse{\value{listcount}=1}{#1}{}}
+%\DeclareNameFormat{surname}{\ifthenelse{\value{listcount}=1}{#1}{}}
+%\DeclareNameFormat{firstname}{\ifthenelse{\value{listcount}=1}{#3}{}}
+\DeclareNameFormat*{family}{\namepartfamily}
 
-% for surnames
+
+% for surnames - changed to 'last' 17/01/19
 
 \newbibmacro{author/editor:surname}{%
   \ifthenelse{\ifuseauthor\AND\NOT\ifnameundef{author}}%
-    {\ifuseauthor{\printnames[surname]{author}}{}}%
-    {\ifthenelse{\ifuseeditor\AND\NOT\ifnameundef{editor}}{\printnames[surname]{editor}}{}}}
+    {\ifuseauthor{\printnames[last]{author}}{}}%
+    {\ifthenelse{\ifuseeditor\AND\NOT\ifnameundef{editor}}{\printnames[last]{editor}}{}}}
 
 % for reported cases with a venue
 
@@ -219,7 +221,7 @@
 				\ifentrytype{case-us-reported} \or %
 				\ifentrytype{case-us-unreported}}{%
 				\usedriver{}{\thefield{entrytype}}\printfield{postnote}\usebibmacro{venue}}{%
-				\usebibmacro{author/editor:surname}\addcomma\addspace{above n}\addspace\ref{cbx@\csuse{cbx@\thefield{entrykey}}}\iffieldundef{postnote}{}{\ifloccit{}{\addcomma}\printfield{postnote}}}}{%
+				\printnames[family][1-3]{author}\addcomma\addspace{above n}\addspace\ref{cbx@\csuse{cbx@\thefield{entrykey}}}\iffieldundef{postnote}{}{\ifloccit{}{\addcomma}\printfield{postnote}}}}{%
 			\usebibmacro{cite:save}%
 			\usedriver{}{\thefield{entrytype}}\printfield{postnote}\usebibmacro{venue}}}}%
 {}{}%

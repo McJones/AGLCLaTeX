@@ -1,13 +1,19 @@
 # AGLCLaTeX
+
+Forked from original code by McJones: https://github.com/McJones/
+
 A Biblatex style implementing version 3 of the Australian Guide to Legal Citation
 
-The Australian Guide to Legal Citation ('AGLC') is in my opinion one of the best and most flexible citation systems ever devised. This is despite its many detailed rules; in fact, it is probably the detail that contributes most to its flexibility, as it is very easy to find a close match for any source type.
+The Australian Guide to Legal Citation ('AGLC') is in my opinion one of the best and most flexible citation systems ever devised. This is despite its many detailed rules; in fact, it is probably the detail that contributes most to its flexibility, as it is very easy to find a close match for any source type.*
 
 It is the citation system I learned when I was in law school, and it is currently the most widely used system for legal citations in Australia. The AGLC is published by the Melbourne University Law Review Association, and is available from the [University of Melbourne website](http://law.unimelb.edu.au/mulr/aglc/about) as a read-only PDF and to purchase in hard or soft copy.
 
 Almost all of this is original work, built from scratch simply by following the Biblatex documentation. Small parts have been taken from various forum posts where I ran into difficulty. The parts for storing previous footnote numbers (the cite:save bibmacro) and some code for printing only surnames for the above n citations were taken from [Will Hardy's](https://github.com/willhardy/aglc) attempt at implementing the AGLC, so thanks to him.
 
 The decision to create an entirely new style from scratch was due to the complexity of the AGLC. None of the existing styles was particularly suitable to modify, and while I could have built upon one and _heavily_ modified it, it seemed easier to simply take full control. This allowed me to learn the workings of Biblatex in some considerable detail. Additionally, as far as I could tell, Will was the only other person to attempt this and publish the result, but he was working with version 2 of the AGLC rather than version 3 (and there have been significant changes and expansions), and did not attempt a 'complete' solution.
+
+*Note, this is the opinion of the code's original author, McJones. The current maintainers of the code differ wildly on the relative merits of the AGLC3. Regardless, the only thing worse than an imperfect standard is multiple imperfect standards...
+
 
 ## Contents
 
@@ -80,7 +86,9 @@ If the postnote is identical, only 'Ibid' is printed. If there are multiple sour
 
 Dates for sources should be in ```YYYY-MM--DD``` format: ```Date = {2000-01-01}```. Individual authors and editors should be separated with 'and' (do not use commas, even for more than two authors): ```Author = {John Smith and Jane Doe}```. Corporate authors should be enclosed in double curly braces to prevent unintended splitting: ```Author: {{Department of Foreign Affairs and Trade}}```.
 
-**AGLCLaTeX does not currently support the headings, titles or bibliography format of the AGLC**
+**AGLCLaTeX does not currently support the bibliography format of the AGLC**
+
+For other formatting (headings, etc.) see the sample template AGLC3.tex
 
 ## Domestic sources
 
@@ -108,7 +116,7 @@ Refer to the AGLC for formatting rules. Note that:
 ```
 @case-gen-volume{tang2008,
 Title  = {R v Tang},
-Year   = {2008},
+Date   = {2008},
 Volume = {237},
 Series = {CLR},
 Pages  = {1}}
@@ -119,7 +127,7 @@ Pages  = {1}}
 ```
 @case-gen-year{bakker1980,
 Title  = {Bakker v Stewart},
-Year   = {1980},
+Date   = {1980},
 Series = {VR},
 Pages  = {17}}
 ```
@@ -129,7 +137,7 @@ Pages  = {17}}
 ```
 @case-gen-year{rowe1976,
 Title  = {Rowe v McCartney},
-Year   = {1976},
+Date   = {1976},
 Volume = {2},
 Series = {NSWLR},
 Pages  = {72}}
@@ -144,7 +152,7 @@ Both ```@case-gen-volume``` and ```@case-gen-year``` allow for the ```venue``` f
 ```
 @case-gen-year{aldrick2000,
 Title  = {Aldrick v EM Investments (Qld) Pty Ltd},
-Year   = {2000},
+Date   = {2000},
 Volume = {2},
 Series = {Qd R},
 Pages  = {346},
@@ -309,7 +317,7 @@ Gazette notice with author and title:
 Author    = {Minister for Lands (WA)},
 Title     = {\textit{Land Acquisition and Public Works Act 1902 --- Native Title Act 1993} (Commonwealth) --- Notice of Intention to Take Land for a Public Work},
 Location  = {Western Australia},
-Maintitle = {Western Australian Government Gazette}
+Maintitle = {Western Australian Government Gazette},
 Number    = {27},
 Date      = {1997-02-18},
 Pages     = {1142}}
@@ -415,17 +423,22 @@ In accordance with the AGLC:
 
 ### Journal Articles
 
-AGLCLaTeX provides for two kind of academic journal article:
+AGLCLaTeX now only uses one tag for academic journal articles:
+
+- ```@article``` - article published in an academic journal.
+
+The older format: 
 
 - ```@article-volume``` - articles published in journals arranged by volume, and
 - ```@article-year``` - articles published in journals arranged by year.
+ 
+is no longer necessary, but is still supported. 
 
-These are substantially the same in terms of database entries. They may or may not include an article type (for unsigned articles), an issue number or a URL:
 
-Article published in a journal arranged by volume:
+For an article published in a journal arranged by volume include a volume field:
 
 ```
-@article-volume{kenyon1998,
+@article{kenyon1998,
 Author  = {Andrew Kenyon},
 Title   = {Problems with Defamation Damages?},
 Year    = {1998},
@@ -434,10 +447,10 @@ Journal = {Monash University Law Review},
 Pages   = {70}}
 ```
 
-Article published in a journal arranged by year:
+For an article published in a journal arranged by year, *do not* include a volume field:
 
 ```
-@article-year{dockray1985,
+@article{dockray1985,
 Author  = {Martin Dockray},
 Title   = {Why Do We Need Adverse Possession?},
 Year    = {1985},
@@ -445,10 +458,10 @@ Journal = {Conveyancer and Property Lawyer},
 Pages   = {272}}
 ```
 
-Unsigned article published in a journal arranged by volume:
+Unsigned article:
 
 ```
-@article-volume{hlr2005,
+@article{hlr2005,
 Type    = {Note},
 Title   = {Unfixing \textit{Lawrence}},
 Year    = {2005},
@@ -460,7 +473,7 @@ Pages   = {2858}}
 Article with issue number:
 
 ```
-@article-volume{masters2008,
+@article{masters2008,
 Author  = {Jeremy Masters},
 Title   = {Easing the Parting},
 Year    = {2008},
@@ -473,7 +486,7 @@ Pages   = {68}}
 Forthcoming article:
 
 ```
-@article-year{foster2009,
+@article{foster2009,
 Author  = {Michelle Foster},
 Title   = {\textit{Non-Refoulement} on the Basis of Socio-Economic Deprivation: The Scope of Complementary Protection in International Human Rights Law},
 Year    = {2009},
@@ -484,7 +497,7 @@ Pages   = {(forthcoming)}}
 Article published in parts:
 
 ```
-@article-year{gooderson1966pt2,
+@article{gooderson1966pt2,
 Author  = {R N Gooderson},
 Title   = {Claim of Rights and Dispute of Title},
 Part    = {1},
@@ -496,7 +509,7 @@ Pages   = {216}}
 Article published in an electronic journal with pages:
 
 ```
-@article-volume{lewins2006,
+@article{lewins2006,
 Author  = {Kate Lewins},
 Title   = {What's the \textit{Trade Practices Act} Got to Do with It? Section 74 and Towage Contracts in Australia},
 Year    = {2006},
@@ -510,7 +523,7 @@ URL     = {https://elaw.murdoch.edu.au/archives/issues/2006/1/eLaw_Lewins_13_200
 Article published in an electronic journal without pages:
 
 ```
-@article-volume{vancaenegem1996,
+@article{vancaenegem1996,
 Author  = {William van Caenegem},
 Title   = {Copyright Liability for the Playing of ``Music on Hold'' --- \textit{Telstra Corporation Ltd v Australasian Prforming Rights Association Ltd}},
 Year    = {1996},
@@ -522,7 +535,7 @@ URL     = {http://www.austlii.edu.au/au/journals/HCRev/1996/9.html}}
 Symposia:
 
 ```
-@article-volume{mulr2002,
+@article{mulr2002,
 Type    = {Symposium},
 Title   = {Contemporary Human Rights in Australia},
 Year    = {2002},
