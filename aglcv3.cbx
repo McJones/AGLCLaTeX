@@ -161,7 +161,8 @@
 \DeclareCiteCommand{\cite}[\mkbibfootnote]{}{%
 	\printfield{prenote}%
 	\ifciteibid{%
-		Ibid\addspace\printfield{postnote}}{%
+		\iffieldundef{prenote}{Ibid\addspace\printfield{postnote}}{ibid\addspace\printfield{postnote}}
+		}{%
 		\ifciteseen{%
 			\ifthenelse{%
 				\ifentrytype{case-gen-volume} \or%
